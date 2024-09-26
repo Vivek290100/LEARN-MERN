@@ -12,4 +12,4 @@ const PropsChild = (props, {isLoggedIn}) => {
   )
 }
 
-export default PropsChild
+export default PropsChild 

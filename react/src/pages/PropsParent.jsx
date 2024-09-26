@@ -17,6 +17,6 @@ const PropsParent = () => {
       </ErrorBoundary>
     </div>
   );
-};
+}; 
 
 export default PropsParent;

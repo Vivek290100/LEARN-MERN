@@ -1,4 +1,4 @@
-class graph{
+class Graph{
     constructor(){
         this.adjacencyList = {}
     }
@@ -27,18 +27,74 @@ class graph{
             
         }
     }
+
+    bfs(start){
+        const queue = [start]
+        const visited = {}
+        const result = []
+        visited[start] = true
+
+        while(queue.length){
+            let vertex = queue.shift()
+            result.push(vertex)
+
+            this.adjacencyList[vertex].forEach(neighbor=>{
+                if(!visited[neighbor]){
+                    queue.push(neighbor)
+                    visited[neighbor] = true
+                }
+            })
+        }
+        return result
+    }
+
+    dfs(start){
+        const result = []
+        const visited = {}
+        const adjacencyList = this.adjacencyList;
+
+        (function dfshelper(vertex){
+            if(!vertex) return
+            result.push(vertex)
+            visited[vertex] = true
+
+            adjacencyList[vertex].forEach(neighbor=>{
+                if(!visited[neighbor]){
+                    dfshelper(neighbor)
+                }
+            })
+        }(start))
+        return result
+    }
 }
 
 
-const Graph = new graph()
 
-Graph.addVertex("A")
-Graph.addVertex("B")
-Graph.addVertex("C")
+const graph = new Graph()
 
+graph.addVertex("A")
+graph.addVertex("B")
+graph.addVertex("C")
+graph.addVertex("D")
+graph.addVertex("E")
+graph.addVertex("F")
+graph.addVertex("G")
+graph.addVertex("E")
 
-Graph.addEdges("A", "B")
-Graph.addEdges("B", "C")
-Graph.addEdges("C", "A")
+graph.addEdges("A","C")
+graph.addEdges("A","F")
+graph.addEdges("C","B")
+graph.addEdges("C","D")
+graph.addEdges("B","A")
+graph.addEdges("B","F")
+graph.addEdges("B","C")
+graph.addEdges("B","D")
+graph.addEdges("B","E")
+graph.addEdges("B","G")
+graph.addEdges("F","G")
+graph.addEdges("E","G")
+graph.addEdges("E","D")
 
-Graph.display()
+// Graph.display()
+console.log(graph.bfs("A"));
+console.log(graph.dfs("A"));

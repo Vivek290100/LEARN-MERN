@@ -15,7 +15,7 @@ const MyButton = () => {
         <button onClick={handleClick}>Change Color</button>
       </>
     );
-  };
+  }; 
 
   export default MyButton;
   

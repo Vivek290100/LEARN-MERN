@@ -137,7 +137,7 @@
 // Reflect.get
 
 const obj = {
-    name: "vivek",
+    name: "vivek", 
     email: "@gmail.com"
 }
 

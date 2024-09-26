@@ -36,7 +36,6 @@ class HashTable{
                 newHashTable.add(array[i])
             }
         }
-        // console.log(newHashTable);
         return result
         
     }

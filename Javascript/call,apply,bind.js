@@ -12,7 +12,7 @@
 
 
 
-//apply
+//apply 
 // function greet(){
 //     console.log(`hello,${this.fname},${this.lname}`);
 // }

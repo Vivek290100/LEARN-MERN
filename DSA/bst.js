@@ -88,12 +88,12 @@ class bst{
         }
     }
 
-    heighgt(root=this.root){
+    height(root=this.root){
         if(!root){
             return -1
         }
-        const left = this.heighgt(root.left)
-        const right = this.heighgt(root.right)
+        const left = this.height(root.left)
+        const right = this.height(root.right)
         return Math.max(left,right)+1
     }
 }
@@ -114,7 +114,7 @@ BST.insert(126)
 // console.log(BST.search(BST.root,126));
 // console.log(BST.min())
 
-console.log(BST.heighgt());
+console.log(BST.height());
 
 
 

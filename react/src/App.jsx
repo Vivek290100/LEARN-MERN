@@ -8,20 +8,22 @@ import InfiniteScrollList from './pages/InfiniteScrollList'
 import MyButton from './pages/UseRef'
 import ErrorBoundary from './components/ErrorBoundary'
 import InfiniteScrollwithLazy from './components/InfiniteScrollwithlazy'
+import New  from "./pages/new" 
 const App = () => {
   return (
     <div>
       <h1>this is home page </h1>
-      <ErrorBoundary>
+      {/* <ErrorBoundary> */}
       {/* <CounterApp/>
       <Props/> */}
-      {/* <Counter/> */}
+      <Counter/>
       {/* <ListandKeys/> */}
       {/* <UseEffectHook/> */}
       {/* <InfiniteScrollList/> */}
-      <InfiniteScrollwithLazy/>
+      {/* <InfiniteScrollwithLazy/> */}
+      {/* <New/> */}
       {/* <MyButton/> */}
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </div>
   )
 }
