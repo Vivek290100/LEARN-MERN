@@ -1,21 +1,22 @@
-import { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-const MyButton = () => {
-    const buttonRef = useRef(null);
-  
-    const handleClick = () => {
-      if (buttonRef.current) {
-        buttonRef.current.style.backgroundColor = 'blue';
-      }
-    };
-  
-    return (
-      <>
-        <button ref={buttonRef}>Click me</button>
-        <button onClick={handleClick}>Change Color</button>
-      </>
-    );
-  }; 
+const New = () => {
+  const changeColorRef = useRef(null);
+  const [color, setColor] =  useState("yellow")
 
-  export default MyButton;
-  
+  const changeColor = () =>{
+    if(changeColorRef.current){
+        changeColorRef.current.style.backgroundColor = color
+
+        setColor((previousColor)=> previousColor==="yellow"? "red" : "yellow")
+    }
+  }
+  return (
+    <div>
+        <button ref={changeColorRef}>hiiiiiiiii</button>
+        <button onClick={changeColor}>changeColor</button>
+    </div>
+  )
+};
+
+export default New;

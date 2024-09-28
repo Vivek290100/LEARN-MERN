@@ -1,4 +1,5 @@
 import React from 'react'
+import "./index.css";
 import CounterApp from './components/CounterApp'
 import Props from './components/props'
 import Counter from "./pages/Counter"
@@ -8,22 +9,33 @@ import InfiniteScrollList from './pages/InfiniteScrollList'
 import MyButton from './pages/UseRef'
 import ErrorBoundary from './components/ErrorBoundary'
 import InfiniteScrollwithLazy from './components/InfiniteScrollwithlazy'
-import New  from "./pages/new" 
+import ReactMemo from "./pages/ReactMemo"
+import UseMemo from "./pages/UseMemo"
+import UseCallback from "./pages/UseCallback"
+import UseRef from "./pages/UseRef"
+import ChildToParent from './components/ChildToParent';
+import Upload from './pages/Upload'
+
 const App = () => {
   return (
     <div>
-      <h1>this is home page </h1>
+      <h2>this is home page </h2>
       {/* <ErrorBoundary> */}
       {/* <CounterApp/>
       <Props/> */}
-      <Counter/>
+      {/* <Counter/> */}
       {/* <ListandKeys/> */}
       {/* <UseEffectHook/> */}
       {/* <InfiniteScrollList/> */}
       {/* <InfiniteScrollwithLazy/> */}
-      {/* <New/> */}
       {/* <MyButton/> */}
       {/* </ErrorBoundary> */}
+      {/* <ReactMemo/> */}
+      {/* <UseMemo/> */}
+      {/* <UseCallback/> */}
+      {/* <UseRef/> */}
+      {/* <ChildToParent/> */}
+      <Upload/>
     </div>
   )
 }
