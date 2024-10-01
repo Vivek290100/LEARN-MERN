@@ -1,4 +1,15 @@
-//bubble sort
+
+
+// Algorithm	  BestCase	  Average Case	 Worst Case	  Space Complexity
+// Bubble Sort	  O(n)	      O(n²)	         O(n²)	      O(1)
+// Insertion Sort O(n)	      O(n²)	         O(n²)	      O(1)
+// Selection Sort O(n²)	      O(n²)	         O(n²)	      O(1)
+// Quick Sort	  O(n log n)  O(n log n)     O(n²)	      O(log n)
+// Merge Sort	  O(n log n)  O(n log n)     O(n log n)	  O(n)
+
+
+
+//bubble sort   
 //Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value.
 function bubble(array){
     for(i=0;i<array.length;i++){
@@ -13,7 +24,7 @@ function bubble(array){
 
 console.log("bubble",bubble([34,34,34,545,567,678,68,78]));
 
-//InsertionSort
+//InsertionSort   
 // The Insertion Sort - one part of the array to hold the sorted values, and the other part of the array to hold values that are not sorted yet.
 function insertion(arr){
     for(i=0;i<arr.length;i++){
@@ -30,7 +41,7 @@ console.log("insertion",insertion([2345,345,45,456,4,345,34,3]));
 
 
 
-//The Selection Sort -select lowest value in an array and moves it to the front of the array.
+//The Selection Sort -select lowest value in an array and moves it to the front of the array.   
 function selection(arr){
     for(i=0;i<arr.length;i++){
         let lowest = i
@@ -51,7 +62,9 @@ console.log("selection",selection([345,43,345,23,5245,34,5]));
 
 
 
-//Quick Sort
+//Quick Sort   
+//Average Case: O(n log n)
+//Worst Case  : O(n²) (when the pivot is the smallest or largest element, such as in a sorted array)
 function quick(arr){
     if(arr.length <=1){
         return arr
@@ -70,11 +83,12 @@ function quick(arr){
     return [...quick(left),pivot,...quick(right)]
 }
 
-console.log("quick",quick([345,456,567,6,54,46,34,23,234]));
+console.log("quick",quick([2,5,1,4,3]));
 
 
 
 //mergeSort
+//O(n log n)
 function mergeSort(arr){
     if(arr.length<=1){
         return arr
@@ -99,3 +113,5 @@ function merge(left,right){
 }
 
 console.log("merge",mergeSort([345,5,6,5434,352,346,346,132]));
+
+

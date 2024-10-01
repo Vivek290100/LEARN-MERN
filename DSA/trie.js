@@ -5,54 +5,73 @@ class Node{
     }
 }
 
-class trie{
+class Trie{
     constructor(){
         this.root = new Node()
     }
 
     insert(word){
-        let currentWord = this.root
+        let currentNode = this.root
         for(let char of word){
-            if(!currentWord.children[char]){
-                currentWord.children[char] = new Node()
+            if(!currentNode.children[char]){
+                currentNode.children[char] = new Node()
             }
-            currentWord = currentWord.children[char]
+            currentNode = currentNode.children[char]
         }
-        currentWord.endword = true
+        currentNode.endword = true
     }
 
     search(word){
-        let currentWord = this.root
-        for(let char of word){
-            if(!currentWord.children[char]){
+        let currentNode = this.root
+        for (let char of word){
+            if(!currentNode.children[char]){
                 return false
             }
-            currentWord = currentWord.children[char]
+            currentNode = currentNode.children[char]
         }
-        return currentWord.endword
+        return currentNode.endword
     }
 
     startwith(word){
-        let currentWord = this.root
+        let currentNode = this.root
         for(let char of word){
-            if(!currentWord.children[char]){
+            if(!currentNode.children[char]){
                 return false
             }
-            currentWord = currentWord.children[char]
+            currentNode = currentNode.children[char]
         }
         return true
     }
+
+    autocomplete(word){
+        let currentNode = this.root
+        for(let char of word){
+            if(!currentNode.children[char]){
+                return []
+            }
+        }
+        let list = []
+        this.collectwords(currentNode, word, list)
+        return list
+    }
+
+    collectwords(node, word, list){
+        if(node.endword){
+            list.push(word)
+        }
+        for(let char in node.children){
+            this.collectwords(node.children[char], word+char, list)
+        }
+    }
 }
 
+const trie = new Trie()
 
+trie.insert("apple")
+trie.insert("apples")
+trie.insert("appless")
+trie.insert("car")
 
-const tries = new trie()
-
-tries.insert("bus")
-tries.insert("bike")
-tries.insert("bikes")
-tries.insert("jeep")
-
-console.log(tries.search("car"));
-console.log(tries.search("bus"));
-console.log(tries.startwith("b"));
+console.log(trie.search("bus"));
+console.log(trie.startwith("a"));
+console.log(trie.autocomplete("a"));
