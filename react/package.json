@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "daisyui": "^4.12.10",
+    "lucide-react": "^0.447.0",
+    "openai": "^4.67.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1"
@@ -19,11 +22,15 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "tailwindcss": "^3.4.10",
-    "vite": "^5.3.1"
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.3.1",
+    "@reduxjs/toolkit": "^2.2.7",
+    "react-redux": "^9.1.2"
   }
 }

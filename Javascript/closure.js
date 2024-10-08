@@ -1,11 +1,11 @@
-function multiplier(a) {
-    return function (b) {
-        return a * b
-    }
+
+function fun1() {
+  let val = 10;
+
+  function fun2() {
+    console.log(val);
+  }
+  return fun2;
 }
 
-const aa = multiplier(4)
-const bb = multiplier(7)
-
-console.log(aa(2));
-console.log(bb(2));
+fun1();

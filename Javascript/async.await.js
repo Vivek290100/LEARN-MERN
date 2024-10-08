@@ -10,3 +10,18 @@ async function promise () {
 }
 
 promise()
+
+
+
+async function asyncawait(){
+    try{
+        const urldata = await fatch ("url")
+        const data = await urldata.json()
+        console.log(data);
+        
+    }catch(error){
+
+    }
+}
+
+asyncawait()

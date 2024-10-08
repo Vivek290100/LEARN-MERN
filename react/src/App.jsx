@@ -15,11 +15,15 @@ import UseCallback from "./pages/UseCallback"
 import UseRef from "./pages/UseRef"
 import ChildToParent from './components/ChildToParent';
 import Upload from './pages/Upload'
+import ReduxCounter from './pages/ReduxCounter';
+import Toggle from './pages/Toggle'
+import SearchComponent from './pages/SearchComponent';
+import CustomHook from './pages/CustomHook';
 
 const App = () => {
   return (
     <div>
-      <h2>this is home page </h2>
+      <h1 className="text-center text-3xl text-yellow-300">This is the home page</h1>
       {/* <ErrorBoundary> */}
       {/* <CounterApp/>
       <Props/> */}
@@ -35,7 +39,13 @@ const App = () => {
       {/* <UseCallback/> */}
       {/* <UseRef/> */}
       {/* <ChildToParent/> */}
-      <Upload/>
+      {/* <Upload/> */}
+      {/* <ReduxCounter/> */}
+      {/* <Toggle/> */}
+      {/* <SearchComponent/> */}
+      <CustomHook/>
+      
+
     </div>
   )
 }

@@ -1,137 +1,25 @@
-// class HashTable{
-//     constructor(size){
-//         this.table = new Array(size)
-//     }
-
-//     hash(key){
-//         let total = 0
-//         for(let i=0;i<key.length;i++){
-//             total += key.charCodeAt(i)
-//         }
-//         return total%this.table.length
-//     }
-
-//     set(key, value){
-//         const index = this.hash(key)
-//         this.table[index] = {key,value}
-//     }
-
-//     get(key){
-//         const index = this.hash(key)
-//         return this.table[index]
-//     }
-
-//     remove(key){
-//         const index = this.hash(key)
-//         this.table[index] = undefined
-//     }
-
-//     removeDuplicates(array){
-//         let result = []
-//         for(let i=0;i<array.length;i++){
-//             if(!result.includes(array[i])){
-//                 result.push(array[i])
-//             }
-//         }
-//         return result
-//     }
-
-//     display(){
-//         for(let i=0;i<this.table.length;i++){
-//             if(this.table[i]){
-//                 console.log(this.table[i].key,this.table[i].value);
-//             }
-            
-//         }
-//     }
-// }
-
-// const table = new HashTable(10)
-
-// table.set("vivek",12)
-// table.set("varun345",13)
-// table.set("aswin",14)
-
-// table.remove("varun345")
-// console.log(table.removeDuplicates([1,1,1,2,3,5,6,6,7,8,6,5,4,3]));
-
-// table.display()
-// // console.log(HashTable);
-
-
-
-
-
-class HashTable {
-    constructor(size) {
-        this.table = new Array(size);
+function mergesort(arr){
+    if(arr.length <=1){
+        return arr
     }
 
-    hash(key) {
-        let total = 0;
-        for (let i = 0; i < key.length; i++) {
-            total += key.charCodeAt(i);
-        }
-        return total % this.table.length;
-    }
+    const mid = Math.floor(arr.length/2)
+    const left = arr.slice(0,mid)
+    const right = arr.slice(mid)
 
-
-    set(key, value) {
-        const index = this.hash(key);
-        if (!this.table[index]) {
-            this.table[index] = [];
-        }
-        // Always add the new key-value pair to the array
-        this.table[index].push([key, value]);
-    }
-
-    get(key) {
-        const index = this.hash(key);
-        if (this.table[index]) {
-            const pair = this.table[index].find(item => item[0] === key);
-            if (pair) {
-                return pair[1];
-            }
-        }
-        return undefined;
-    }
-
-    remove(key){
-        const index = this.hash(key)
-        this.table[index] = undefined
-    }
-
-    removeDuplicates(array) {
-        let result = [];
-        for (let i = 0; i < array.length; i++) {
-            if (!result.includes(array[i])) {
-                result.push(array[i]);
-            }
-        }
-        return result;
-    }
-
-    display(){
-        for(let i=0;i<this.table.length;i++){
-            if(this.table[i]){
-                console.log(this.table[i]);
-            }
-        }
-    }
+    return (merge(mergesort(left),mergesort(right)))
 }
 
-const table = new HashTable(10);
+function merge(left, right){
+    let result = []
+    while(left.length && right.length){
+        if(left[0]<right[0]){
+            result.push(left.shift())
+        }else{
+            result.push(right.shift())
+        }
+    }
+    return [...result,...left,...right]
+}
 
-table.set("vivek", 12);
-table.set("varun345", 13);
-table.set("aswin", 14);
-table.set("vivek", 99);  
-table.set("vivek", 919);  
-table.set("vivek", 929);  
-table.set("vivek", 939);  
-
-table.remove("varun345");
-// console.log(table.removeDuplicates([1, 1, 1, 2, 3, 5, 6, 6, 7, 8, 6, 5, 4, 3]));
-
-table.display();
-
+console.log(mergesort([3,234,456,87,879,879,4,56,23,5]));
