@@ -1,4 +1,13 @@
 
+// Operation	    Time Complexity
+// Insert	        O(log n)
+// RemoveMin	    O(log n)
+// Heapify Up	    O(log n)
+// Heapify Down	    O(log n)
+// Peek (Get Min)	O(1)
+// Heap Sort	    O(n log n)
+
+
 class MinHeap {
     constructor() {
         this.heap = [];

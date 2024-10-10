@@ -19,11 +19,15 @@ import ReduxCounter from './pages/ReduxCounter';
 import Toggle from './pages/Toggle'
 import SearchComponent from './pages/SearchComponent';
 import CustomHook from './pages/CustomHook';
+import Test from './pages/Ztest'
+import ForwardRef from './pages/ForwardRef'
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-center text-3xl text-yellow-300">This is the home page</h1>
+      <h1 
+      // className="text-center text-3xl text-yellow-300"
+      >This is the home page</h1>
       {/* <ErrorBoundary> */}
       {/* <CounterApp/>
       <Props/> */}
@@ -43,7 +47,10 @@ const App = () => {
       {/* <ReduxCounter/> */}
       {/* <Toggle/> */}
       {/* <SearchComponent/> */}
-      <CustomHook/>
+      {/* <CustomHook/> */}
+      {/* <ReduxCounter/> */}
+      <Test/>
+      {/* <ForwardRef/> */}
       
 
     </div>

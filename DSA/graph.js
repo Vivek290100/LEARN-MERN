@@ -1,3 +1,15 @@
+
+// Operation	                Adjacency List	Adjacency Matrix
+// Add Vertex	                O(1)	        O(V²) (resize matrix)
+// Add Edge	                    O(1)	        O(1)
+// Remove Vertex                O(V + E)        O(V²)
+// Remove Edge	                O(V)	        O(1)
+// Check if Edge Exists (u, v)	O(V)	        O(1)
+// Get Neighbors of a Vertex	O(1)	        O(V)
+
+// BFS -> O(V + E)
+// DFS -> O(V + E)
+
 class Graph{
     constructor(){
         this.adjacencyList = {}

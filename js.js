@@ -1,25 +1,18 @@
-function mergesort(arr){
-    if(arr.length <=1){
-        return arr
-    }
+function binsrySearch(arr,target){
+    let start = 0
+    let end = arr.length-1
 
-    const mid = Math.floor(arr.length/2)
-    const left = arr.slice(0,mid)
-    const right = arr.slice(mid)
-
-    return (merge(mergesort(left),mergesort(right)))
-}
-
-function merge(left, right){
-    let result = []
-    while(left.length && right.length){
-        if(left[0]<right[0]){
-            result.push(left.shift())
+    while(start<=end){
+        let mid = Math.floor((start+end)/2)
+        if(arr[mid]===target){
+            return true
+        }else if(arr[mid]<target){
+            start = mid+1
         }else{
-            result.push(right.shift())
+            end = mid-1
         }
     }
-    return [...result,...left,...right]
+    return -1
 }
 
-console.log(mergesort([3,234,456,87,879,879,4,56,23,5]));
+console.log(binsrySearch([2,3,4,5,6,7,8,9],2));

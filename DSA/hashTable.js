@@ -1,3 +1,11 @@
+
+
+// Operation	Average   Time Complexity	Worst Case Time Complexity
+// Insertion	O(1)	  O(n)
+// Deletion	    O(1)	  O(n)
+// Search	    O(1)	  O(n)
+
+
 // class HashTable{
 //     constructor(size=10){
 //         this.Table = new Array(size)
@@ -26,19 +34,18 @@
 //         this.Table[index] = undefined
 //     }
 
-//     removeduplicates(array){    
-//         const result = []
-//         const newHashTable = new Set()
+//     removeDuplicates(arr){
+//     let hashtable = {}
+//     let result = []
 
-//         for(let i=0;i<array.length;i++){
-//             if(!newHashTable.has(array[i])){
-//                 result.push(array[i])
-//                 newHashTable.add(array[i])
-//             }
+//     for(let i=0;i<arr.length;i++){
+//         if(!hashtable[arr[i]]){
+//             hashtable[arr[i]] = true
+//             result.push(arr[i])
 //         }
-//         return result
-        
 //     }
+//     return result
+// }
 
 //     display(){
 //         for(let i=0;i<this.Table.length;i++){
@@ -59,7 +66,7 @@
 
 // hashtable.display()
 
-// const result = hashtable.removeduplicates([1,3,3,3,5,7,8,8,8])
+// const result = hashtable.removeDuplicates([1,3,3,3,5,7,8,8,8])
 // console.log(result);
 
 
@@ -108,14 +115,17 @@ class HashTable {
         this.table[index] = undefined
     }
 
-    removeDuplicates(array) {
-        let result = [];
-        for (let i = 0; i < array.length; i++) {
-            if (!result.includes(array[i])) {
-                result.push(array[i]);
+    removeDuplicates(arr){
+        let hashtable = {}
+        let result = []
+
+        for(let i=0;i<arr.length;i++){
+            if(!hashtable[arr[i]]){
+                hashtable[arr[i]] = true
+                result.push(arr[i])
             }
         }
-        return result;
+        return result
     }
 
     display(){
@@ -138,14 +148,6 @@ table.set("vivek", 929);
 table.set("vivek", 939);  
 
 table.remove("varun345");
-// console.log(table.removeDuplicates([1, 1, 1, 2, 3, 5, 6, 6, 7, 8, 6, 5, 4, 3]));
+console.log(table.removeDuplicates([1, 1, 1, 2, 3, 5, 6, 6, 7, 8, 6, 5, 4, 3]));
 
 table.display();
-
-
-
-
-
-
-
-
