@@ -50,6 +50,7 @@ class MinHeap {
         let currentIndex = this.heap.length - 1;
         while (this.hasParent(currentIndex) && this.heap[currentIndex] < this.getParent(currentIndex)) {
             this.swap(currentIndex, this.getParentIndex(currentIndex))
+            currentIndex = this.getParentIndex(currentIndex);
         }
     }
     removeMin() {
@@ -70,6 +71,7 @@ class MinHeap {
             } else {
                 this.swap(currentIndex, smallerIndex)
             }
+            currentIndex = smallerIndex;
         }
     }
 }

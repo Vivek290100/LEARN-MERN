@@ -38,6 +38,30 @@ console.log(prime);
 // console.log(secondLarge);
 
 
+
+// third large
+const array = [3,6,4,5,7,0]
+let large = 0
+let second = 0
+let third = 0
+for(i=0;i<array.length;i++){
+    if(array[i]>large){
+        third = second
+        second = large
+        large = array[i]
+    }else if(array[i]>second){
+        third = second 
+        second = array[i]
+    }else if(array[i]>third){
+        third = array[i]
+    }
+}
+console.log(large);
+console.log(second);
+console.log(third);
+
+
+
 //sum od n numbers
 // function sum(n){
 //     if(n<1){

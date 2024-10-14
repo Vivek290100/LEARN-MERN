@@ -1,18 +1,66 @@
-function binsrySearch(arr,target){
-    let start = 0
-    let end = arr.length-1
-
-    while(start<=end){
-        let mid = Math.floor((start+end)/2)
-        if(arr[mid]===target){
-            return true
-        }else if(arr[mid]<target){
-            start = mid+1
-        }else{
-            end = mid-1
-        }
+class MinHeap{
+    constructor(){
+        this.heap = []
     }
-    return -1
+
+    getParentIndex(childInd){
+        return Math.floor((childInd-1)/2)
+    }
+
+    getLeftChildInd(parentInd){
+        return (parentInd*2)+1
+    }
+    
+    getRightChildInd(parentInd){
+        return (parentInd*2)+2
+    }
+
+    getParent(index){
+        return this.heap[this.getParentIndex(index)]
+    }
+
+    getLeftChild(index){
+        return this.heap[this.getParentIndex(index)]
+    }
+
+    getRightChild(index){
+        return this.heap[this.getRightChildInd(index)]
+    }
+
+    hasParent(index){
+        return this.heap[this.getParentIndex(index)] >= 0
+    }
+
+    hasLeftChild(index){
+        return this.heap[this.getLeftChildInd(index)] > this.heap.length
+    }
+    hasRighttChild(index){
+        return this.heap[this.getRightChildInd(index)] > this.heap.length
+    }
+
+    swap(index1, index2){
+        [this.heap[index1], this.heap[index2]] = [this.heap[index2], this.heap[index1]]
+    }
+
+    insert(value){
+        this.heap.push(value)
+        this.heapifyUp()
+    }
+
+    heapifyUp(){
+        let currentIndex = this.heap.lengrt-1
+        while(this.hasParent(currentIndex) && this.heap[currentIndex] < this.getParent(currentIndex))
+        this.swap(currentIndex, this.getParentIndex(currentIndex))
+        currentIndex = this.getParentIndex(currentIndex)
+    }
+
 }
 
-console.log(binsrySearch([2,3,4,5,6,7,8,9],2));
+const heap = new MinHeap()
+heap.insert(12)
+heap.insert(162)
+heap.insert(125)
+
+console.log(heap);
+
+
