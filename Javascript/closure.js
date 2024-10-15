@@ -1,4 +1,3 @@
-
 function fun1() {
   let val = 10;
 
@@ -8,4 +7,5 @@ function fun1() {
   return fun2;
 }
 
-fun1();
+const ans = fun1();
+ans()

@@ -1,126 +1,78 @@
-class Node {
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-  }
-  
-  class linkedlist{
+class MinHeap{
     constructor(){
-        this.head = null
-        this.size = 0
+        this.heap = []
     }
-    isEMpty(){
-        return this.size === 0
+
+    getParentIndex(childInd){
+        return Math.floor((childInd-1)/2)
+    } 
+
+    getLeftChildInd(parentInd){
+        return parentInd*2+1
     }
-  
-    add(value){
-        const newNode = new Node(value)
-        if(this.isEMpty()){
-            this.head = newNode
-        }else{
-            newNode.next = this.head
-            this.head = newNode
+
+    getRightChildInd(parentInd){
+        return parentInd*2+2
+    }
+
+    getParent(index){
+        return this.heap[this.getParentIndex(index)]
+    }
+    getLeftChild(index){
+        return this.heap[this.getLeftChildInd(index)]
+    }
+    getRightChild(index){
+        return this.heap[this.getRightChildInd(index)]
+    }
+
+    hasParent(index){
+        return this.heap[this.getLeftChildInd(index)] >=0
+    }
+
+    insert(value){
+        this.heap.push(value)
+        this.heapifyUp()
+    }
+
+    swap(ind1, ind2){
+        [this.heap[ind1],this.heap[ind2]] = [this.heap[ind2],this.heap[ind1]]
+    }
+
+    heapifyUp(){
+        let currentIndex = this.heap.length-1
+        while(this.hasParent(currentIndex) && this.heap[currentIndex] < this.getParent(currentIndex)){
+            this.swap(currentIndex, this.getParent(currentIndex))
         }
-        this.size++
+        currentIndex = this.getParentIndex(currentIndex)
     }
-  
-    addLast(value) {
-        const newNode = new Node(value)
-        if(this.isEMpty()){
-            this.head = newNode
-        }else{
-            let current = this.head
-            while(current.next){
-                current = current.next
-            }
-            current.next = newNode
-        }
-        this.size++
+
+        // removeMin(index){
+        //     let currentIndex = 0
+        //     while()
+
+        // }
+}
+
+function heapSort(arr){
+    let result = []
+    let heap1 = new MinHeap()
+
+    for(let i=0;i<arr.length;i++){
+        heap1.insert(arr[i])
     }
-  
-    reverse(){
-        let next = null
-        let current = this.head
-        let prev = null
-  
-        while(current){
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        }
-        this.head = prev
+
+    for(let i=0;i<arr.length;i++){
+        result.push(heap1.removeMin())
     }
-    addAtk(value, position){
-        const newNode = new Node(value)
-        let current = this.head
-        for(let i=1;i<position-1;i++){
-            current = current.next
-        }
-        newNode.next = current.next
-        current.next = newNode
-    }
-  
-    deletek(position){
-        let current = this.head 
-        let previous = null
-        for(let i=1;i<position;i++){
-            previous = current
-            current = current.next
-        }
-        previous.next = current.next
-    }
-  
-    search(value){
-        let current = this.head
-        while(current){
-            if (current.value == value) {
-                return true
-            }
-            current = current.next
-        }
-        return false
-    }
-  
-    checkcircular(){
-        if(this.head === null){
-            return false
-        }
-        let current = this.head.next
-        while(current!=null && current!=this.head){
-            current = current.next
-        }
-        return current==this.head
-    }
-  
-    print(){
-        if(this.isEMpty()){
-            console.log("its empty");
-        }else{
-            let current = this.head
-            while(current){
-                console.log(current.value);
-                current = current.next
-            }
-        }
-    }
-  }
-  
-  List = new linkedlist
-  List.add(12)
-  List.add(54)
-  List.add(43)
-  
-  List.addLast(11)
-  List.addLast(22)
-  List.addLast(33)
-  
-  List.reverse()
-  
-  List.addAtk(100,2)
-  List.deletek(3)
-  List.print()
-  console.log(List.search(123));
-  console.log(List.checkcircular());
-  
+    return result
+}
+
+const heap = new MinHeap()
+heap.insert(12)
+heap.insert(142)
+heap.insert(112)
+heap.insert(123)
+
+console.log(heap);
+console.log(heapSort([34,6,12,8,23,1]))
+

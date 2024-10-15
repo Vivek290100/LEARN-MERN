@@ -106,6 +106,24 @@ console.log(third);
 
 
 
+// const array =[1,2,4,6,8,9,10,11,13]
+
+function isPal(str,i=0,j = str.length-1){
+    if(i > j){
+       return true
+    }
+    if(str[i] !== str[j]){
+        return false
+    }else{
+       return isPal(str,i+1,j-1)
+    }
+}
+
+console.log(isPal('malayalam'));
+
+
+
+
 
 
 

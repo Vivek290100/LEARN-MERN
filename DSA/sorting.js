@@ -7,6 +7,8 @@
 // Quick Sort	  O(n log n)  O(n log n)     O(n²)	      O(log n)
 // Merge Sort	  O(n log n)  O(n log n)     O(n log n)	  O(n)
 
+// BinarySearch O(log n)
+
 
 
 //bubble sort   
@@ -50,7 +52,7 @@ function selection(arr){
                 lowest = j
             }
         }
-        if(!lowest==i){
+        if(lowest!=i){
             [arr[i],arr[lowest]] = [arr[lowest],arr[i]]
         }
     }

@@ -200,3 +200,5 @@ db.customers.dropIndex();
 db.customers.aggregate([{ $unwind: "$Tags" }]);
 db.customers.aggregate([{ $lookup: { from: "orders", localField: "_id", foreignField: "customerId", as: "orderDetails" } }]);
 db.customers.aggregate([{ $group: { _id: "$Age", totalSpent: { $sum: "$AmountSpent" } } }]);
+
+sortBycount
