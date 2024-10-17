@@ -93,6 +93,26 @@ class Node {
         }
         return current==this.head
     }
+
+    removeDuplicates(){
+        if(this.isEMpty()){
+          return
+        }
+        let current = this.head
+        let prev = null
+        const valSet = new Set()
+    
+        while(current){
+          if(valSet.has(current.value)){
+            prev.next = current.next
+            this.size--
+          }else{
+            valSet.add(current.value)
+            prev = current
+          }
+          current = current.next
+        }
+      }
   
     print(){
         if(this.isEMpty()){
@@ -123,4 +143,8 @@ class Node {
   List.print()
   console.log(List.search(123));
   console.log(List.checkcircular());
+
+  console.log("***************dup removed");
+  ll.removeDuplicates()
+  
   

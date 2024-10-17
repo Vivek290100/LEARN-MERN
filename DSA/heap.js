@@ -30,12 +30,12 @@ class MinHeap {
     hasParent(index) {
         return this.heap[this.getParentIndex(index)] >= 0
     }
-    hasLeftChildIndex(index) {
-        return this.heap[this.getLeftChildIndex(index)] < this.heap.length
-    }
-    hasRightChildIndex(index) {
-        return this.heap[this.getRightChildIndex(index)] < this.heap.length
-    }
+    // hasLeftChildIndex(index) {
+    //     return this.heap[this.getLeftChildIndex(index)] < this.heap.length
+    // }
+    // hasRightChildIndex(index) {
+    //     return this.heap[this.getRightChildIndex(index)] < this.heap.length
+    // }
     swap(ind1, ind2) {
         [this.heap[ind1], this.heap[ind2]] = [
             this.heap[ind2],
