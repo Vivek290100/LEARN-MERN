@@ -1,8 +1,9 @@
 import React from 'react'
-
+import {useName} from "./Context"
 const Name = () => {
+  const name = useName()
   return (
-    <div>Name</div>
+    <div>{name}</div>
   )
 }
 

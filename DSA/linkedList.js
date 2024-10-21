@@ -1,3 +1,16 @@
+// const ws = new WeakSet()
+
+// let obj = {
+//     name:"vivek"
+// }
+
+// ws.add(obj)
+
+
+// console.log(ws);// Object may be garbage-collected
+
+
+
 class Node {
     constructor(value){
         this.value = value
@@ -125,11 +138,28 @@ class Node {
             }
         }
     }
+
+    LLtoArray(){
+        let current = this.head
+        let result = []
+        while(current){
+            result.push(current.value)
+            current = current.next
+        }
+        return result
+    }
+
+    ArrayToLinkedList(arr){
+        for(let i=0;i<arr.length;i++){
+            this.addLast(arr[i])
+        }
+    }
   }
   
   List = new linkedlist
   List.add(12)
   List.add(54)
+  List.add(43)
   List.add(43)
   
   List.addLast(11)
@@ -137,14 +167,31 @@ class Node {
   List.addLast(33)
   
   List.reverse()
+  console.log("********print all*******");
+  List.print()
   
   List.addAtk(100,2)
-  List.deletek(3)
+  console.log("********after add at k*******");
   List.print()
+
+  List.deletek(3)
+  console.log("********after delete at k*******");
+  List.print()
+
   console.log(List.search(123));
   console.log(List.checkcircular());
 
   console.log("***************dup removed");
-  ll.removeDuplicates()
+  List.removeDuplicates()
+  List.print()
+
+
+  let arr = [1,3,5,2,3,6,9,7]
+  console.log(List.LLtoArray());
+ List.ArrayToLinkedList(arr)
+ List.print()
+  
+  
+  
   
   

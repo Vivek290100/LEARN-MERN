@@ -154,6 +154,7 @@ db.createCollection("events", { capped: true, size: 50000, max: 100 });
 db.customers.updateOne({ _id: ObjectId("6014dc988c628fa57a508099") },{ $set: { AmountSpent: 4000, Age: 'old' } },{ upsert: true });
 
 //pagination 10-15
+// pageNo:1
 db.customers.aggregate([{ $skip: (3 - 1) * 5 },{ $limit: 5 }]);
 
 // 1. Make the Location's 1st Letter Capitalized
@@ -193,7 +194,7 @@ db.customers.find({ Tags: { $all: ['VIP', 'VIP1'] } });
 
 db.customers.createIndex({ Salary: 1 });
 db.customers.createIndex({ Age: 1, AmountSpent: -1 });
-db.customers.getIndex();
+db.customers.getIndexes();
 db.customers.dropIndex();
 
 

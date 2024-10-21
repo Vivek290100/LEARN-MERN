@@ -1,88 +1,69 @@
-class Node{
-  constructor(value){
-    this.value = value
-    this.next = null
-  }
-}
+// // BinarySearch O(log n)
 
-class LinkedList{
-  constructor(){
-    this.head = null
-    this.size = 0
-  }
+// // function binarySearch(array,target){
+// //   let start = 0
+// //   let end = array.length-1
 
-  isEmpty(){
-    return this.size === 0
-  }
+// //   while(start <= end){
+// //       let mid = Math.floor((start+end)/2)
+// //       if(array[mid]==target){
+// //           return mid
+// //       }else if(array[mid] < target){
+// //           start = mid+1
+// //       }else{
+// //           end = mid-1
+// //       }
+// //   }
+// //   return -1
+// // }
+// // console.log(binarySearch([1,2,4,5,6,8,9,10,40,200],200));
 
-  addFirst(value){
-    const newNode = new Node(value)
-    if(this.isEmpty()){
-      this.head = newNode
-    }else{
-      newNode.next = this.head
-      this.head = newNode
+
+
+
+// // Using Recursion
+// function binarySearchrec(arr,target,start = 0, end = arr.length-1){
+//   if(start>end){
+//       return false
+//   }
+
+//   let mid = Math.floor((start+end)/2)
+//   if(arr[mid]==target){
+//       return true
+//   }
+//   else if(arr[mid]<target){
+//       return binarySearchrec(arr,target,mid+1,end)
+//   }else{
+//       return binarySearchrec(arr,target,start,mid-1)
+//   }
+// }
+
+
+// console.log(binarySearchrec([2,3,4,5,6,8,9,12,19],8));
+
+
+
+function reverseDigitsAndAdd(number) {
+    const digits = []; 
+  
+    while (number > 0) {
+      const lastDigit = number % 10;
+      digits.push(lastDigit);
+      number = Math.floor(number / 10); 
     }
-    this.size++
-  }
-
-  addLast(value){
-    const newNode = new Node(value)
-    if(this.isEmpty()){
-      this.head = newNode
-    }else{
-      let current = this.head
-      while(current.next){
-        current = current.next
-      }
-      current.next = newNode
+  
+    let sum = 0;
+    for (let i = digits.length - 1; i >= 0; i--) {
+      sum += digits[i];
     }
-    this.size++
-
+  
+    return sum;
   }
+  
+  const number = [123,456];
+  const result = reverseDigitsAndAdd(number);
+  console.log(result);
+  
 
-  removeDuplicates(){
-    if(this.isEmpty()){
-      return
-    }
-    let current = this.head
-    let prev = null
-    const valSet = new Set()
-
-    while(current){
-      if(valSet.has(current.value)){
-        prev.next = current.next
-        this.size--
-      }else{
-        valSet.add(current.value)
-        prev = current
-      }
-      current = current.next
-    }
-  }
-
-  print(){
-    let current = this.head
-    while(current){
-      console.log(current.value);
-      current = current.next
-    }
-  }
-}
-
-const ll = new LinkedList()
-ll.addFirst(12)
-ll.addFirst(126)
-ll.addFirst(125)
-ll.addFirst(125)
-ll.addFirst(125)
-ll.addFirst(125)
-ll.addFirst(124)
-
-
-
-console.log("**************");
-ll.removeDuplicates()
-ll.print()
 
 
