@@ -32,6 +32,6 @@ export const Context = ({children}) => {
   )
 }
 
-export const usName=()=>{
+export const useName=()=>{
   return useContext(nameContext)
 }

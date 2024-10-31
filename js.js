@@ -43,27 +43,32 @@
 
 
 
-function reverseDigitsAndAdd(number) {
-    const digits = []; 
+// function reverseDigitsAndAdd(number) {
+//     const digits = []; 
   
-    while (number > 0) {
-      const lastDigit = number % 10;
-      digits.push(lastDigit);
-      number = Math.floor(number / 10); 
-    }
+//     while (number > 0) {
+//       const lastDigit = number % 10;
+//       digits.push(lastDigit);
+//       number = Math.floor(number / 10); 
+//     }
   
-    let sum = 0;
-    for (let i = digits.length - 1; i >= 0; i--) {
-      sum += digits[i];
-    }
+//     let sum = 0;
+//     for (let i = digits.length - 1; i >= 0; i--) {
+//       sum += digits[i];
+//     }
   
-    return sum;
-  }
+//     return sum;
+//   }
   
-  const number = [123,456];
-  const result = reverseDigitsAndAdd(number);
-  console.log(result);
+//   const number = [123,456];
+//   const result = reverseDigitsAndAdd(number);
+//   console.log(result);
   
 
 
 
+const str = "my1 name7 is4 vivek2";
+
+const string =str.split(" ")
+string.sort((a,b)=>a[a.length-1]-b[b.length-1])
+console.log(string);

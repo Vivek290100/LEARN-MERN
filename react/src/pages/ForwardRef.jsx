@@ -1,6 +1,8 @@
 import React, { forwardRef, useRef } from 'react'
 
 const Child = forwardRef((props,ref)=>{
+  console.log("redering parent");
+  
   return (
     <div>
       <input ref={ref} type="text" placeholder='enter anything' />
@@ -10,6 +12,9 @@ const Child = forwardRef((props,ref)=>{
 })
 
 const ForwardRefParent = () => {
+
+  console.log("rendering child");
+  
   const inputRef = useRef(null)
 
   const focusInput = () =>{
