@@ -1,3 +1,14 @@
+// Worst Case (Unbalanced BST)
+// - Search:  O(n)
+// - Insert:  O(n)
+// - Delete:  O(n)
+// Average Case (Balanced BST)
+// - Search:  O(log n)
+// - Insert:  O(log n)
+// - Delete:  O(log n)
+
+
+
 class Node{
     constructor(value){
         this.value = value

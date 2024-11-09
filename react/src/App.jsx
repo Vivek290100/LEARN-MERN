@@ -23,6 +23,7 @@ import UCParent from './useCallbackHook/UCParent';
 import CPParent from './ChildToParent/CPParent';
 import UseRef from "./UseRef/UseRef"
 import HocApp from './HOC/HocApp'
+import Form from './form/Form';
 
 const App = () => {
 
@@ -51,7 +52,8 @@ const App = () => {
       {/* <UCParent/> */}
       {/* <UseRef/> */}
       {/* <CPParent/> */}
-      <HocApp/>
+      {/* <HocApp/> */}
+      <Form/>
     </div>
   )
 }
