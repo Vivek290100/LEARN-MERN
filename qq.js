@@ -90,8 +90,39 @@
 // ============================================================
 
 // console.log(y);
-console.log(x);
-var x=y=10
+// console.log(x);
+// var x=y=10
+
+
+
+
+// let globalVar = "global";
+
+// function outerFunction() {
+//   let outerVar = "outer";
+
+//   function innerFunction() {
+//     let innerVar = "inner";
+
+//     console.log(innerVar);    // Found in innerFunction
+//     console.log(outerVar);    // Found in outerFunction
+//     console.log(globalVar);   // Found in global scope
+//   }
+
+//   innerFunction();
+// }
+
+// outerFunction();
+
+
+
+
+
+
+
+
+
+
 
 
 

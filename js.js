@@ -1,74 +1,232 @@
-// // BinarySearch O(log n)
 
-// // function binarySearch(array,target){
-// //   let start = 0
-// //   let end = array.length-1
-
-// //   while(start <= end){
-// //       let mid = Math.floor((start+end)/2)
-// //       if(array[mid]==target){
-// //           return mid
-// //       }else if(array[mid] < target){
-// //           start = mid+1
-// //       }else{
-// //           end = mid-1
-// //       }
-// //   }
-// //   return -1
-// // }
-// // console.log(binarySearch([1,2,4,5,6,8,9,10,40,200],200));
-
-
-
-
-// // Using Recursion
-// function binarySearchrec(arr,target,start = 0, end = arr.length-1){
-//   if(start>end){
-//       return false
-//   }
-
-//   let mid = Math.floor((start+end)/2)
-//   if(arr[mid]==target){
-//       return true
-//   }
-//   else if(arr[mid]<target){
-//       return binarySearchrec(arr,target,mid+1,end)
-//   }else{
-//       return binarySearchrec(arr,target,start,mid-1)
-//   }
-// }
-
-
-// console.log(binarySearchrec([2,3,4,5,6,8,9,12,19],8));
-
-
-
-// function reverseDigitsAndAdd(number) {
-//     const digits = []; 
+class Node {
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+  }
   
-//     while (number > 0) {
-//       const lastDigit = number % 10;
-//       digits.push(lastDigit);
-//       number = Math.floor(number / 10); 
-//     }
+  class linkedlist{
+    constructor(){
+        this.head = null
+        this.size = 0
+    }
+    isEMpty(){
+        return this.size === 0
+    }
   
-//     let sum = 0;
-//     for (let i = digits.length - 1; i >= 0; i--) {
-//       sum += digits[i];
-//     }
+    add(value){
+        const newNode = new Node(value)
+        if(this.isEMpty()){
+            this.head = newNode
+        }else{
+            newNode.next = this.head
+            this.head = newNode
+        }
+        this.size++
+    }
   
-//     return sum;
-//   }
+    addLast(value) {
+        const newNode = new Node(value)
+        if(this.isEMpty()){
+            this.head = newNode
+        }else{
+            let current = this.head
+            while(current.next){
+                current = current.next
+            }
+            current.next = newNode
+        }
+        this.size++
+    }
   
-//   const number = [123,456];
-//   const result = reverseDigitsAndAdd(number);
-//   console.log(result);
+    reverse(){
+        let next = null
+        let current = this.head
+        let prev = null
   
+        while(current){
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        }
+        this.head = prev
+    }
+    addAtk(value, position){
+        const newNode = new Node(value)
+        let current = this.head
+        for(let i=1;i<position-1;i++){
+            current = current.next
+        }
+        newNode.next = current.next
+        current.next = newNode
+    }
+  
+    deletek(position){
+        let current = this.head 
+        let previous = null
+        for(let i=1;i<position;i++){
+            previous = current
+            current = current.next
+        }
+        previous.next = current.next
+    }
+
+    mid(){
+        let slow = this.head
+        let fast = this.head
+
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow.value
+    }
+    removemid(){
+        let slow = this.head
+        let fast = this.head
+        let prev = null
+
+        while(fast&&fast.next){
+            prev = slow
+            fast = fast.next.next
+            slow = slow.next
+        }
+        prev.next = slow.next
+    }
+
+    // removeMid(){
+    //     let fast = this.head
+    //     let slow = this.head
+    //     let prev = null
+
+    //     while(fast && fast.next){
+    //         fast = fast.next.next
+    //         prev = slow
+    //         slow = slow.next
+    //     }
+    //     if(prev){
+    //         prev.next = slow.next
+    //     }
+    //     this.size--
+    // }
+  
+    search(value){
+        let current = this.head
+        while(current){
+            if (current.value == value) {
+                return true
+            }
+            current = current.next
+        }
+        return false
+    }
+  
+    checkcircular(){
+        if(this.head === null){
+            return false
+        }
+        let current = this.head.next
+        while(current!=null && current!=this.head){
+            current = current.next  
+        }
+        return current==this.head
+    }
+
+    removeDuplicates(){
+        if(this.isEMpty()){
+          return
+        }
+        let current = this.head
+        let prev = null
+        const valSet = new Set()
+    
+        while(current){
+          if(valSet.has(current.value)){
+            prev.next = current.next
+            this.size--
+          }else{
+            valSet.add(current.value)
+            prev = current
+          }
+          current = current.next
+        }
+      }
+  
+    print(){
+        if(this.isEMpty()){
+            console.log("its empty");
+        }else{
+            let current = this.head
+            while(current){
+                console.log(current.value);
+                current = current.next
+            }
+        }
+    }
+
+    LLtoArray(){
+        let current = this.head
+        let result = []
+        while(current){
+            result.push(current.value)
+            current = current.next
+        }
+        return result
+    }
+
+    ArrayToLinkedList(arr){
+        for(let i=0;i<arr.length;i++){
+            this.addLast(arr[i])
+        }
+    }
+  }
+  
+  List = new linkedlist
+  List.add(12)
+  List.add(54)
+  List.add(43)
+  List.add(43)
+  
+  List.addLast(11)
+  List.addLast(22)
+  List.addLast(33)
+  
+//   List.reverse()
+//   console.log("********print all*******");
+//   List.print()
+  
+//   List.addAtk(100,2)
+//   console.log("********after add at k*******");
+//   List.print()
+
+//   List.deletek(3)
+//   console.log("********after delete at k*******");
+//   List.print()
+
+//   console.log(List.search(123));
+//   console.log(List.checkcircular());
+
+//   console.log("***************dup removed");
+//   List.removeDuplicates()
+//   List.print()
 
 
+//   let arr = [1,3,5,2,3,6,9,7]
+//   console.log(List.LLtoArray());
+//  List.ArrayToLinkedList(arr)
+//  List.print()
 
-const str = "my1 name7 is4 vivek2";
 
-const string =str.split(" ")
-string.sort((a,b)=>a[a.length-1]-b[b.length-1])
-console.log(string);
+//  console.log("***************middle removed");
+
+List.removemid()
+
+ List.print()
+
+  
+  
+  
+  
+  

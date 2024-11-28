@@ -24,6 +24,7 @@ import CPParent from './ChildToParent/CPParent';
 import UseRef from "./UseRef/UseRef"
 import HocApp from './HOC/HocApp'
 import Form from './form/Form';
+import UseEffect from './UseEffect/UseEffect'
 
 const App = () => {
 
@@ -53,7 +54,8 @@ const App = () => {
       {/* <UseRef/> */}
       {/* <CPParent/> */}
       {/* <HocApp/> */}
-      <Form/>
+      {/* <Form/> */}
+      <UseEffect/>
     </div>
   )
 }

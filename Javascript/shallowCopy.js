@@ -13,5 +13,5 @@ const copy = {...obj}
 copy.name = "vvvvvvvvvvv"
 copy.place.place1 = "*********"
 
-console.log(obj.name);
-console.log(obj.place.place1);
+console.log(obj.name);           //not changed
+console.log(obj.place.place1);   //changed

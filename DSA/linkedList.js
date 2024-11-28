@@ -72,6 +72,33 @@ class Node {
         }
         previous.next = current.next
     }
+
+    mid(){
+        let slow = this.head
+        let fast = this.head
+
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow
+    }
+
+    removeMid(){
+        let fast = this.head
+        let slow = this.head
+        let prev = null
+
+        while(fast && fast.next){
+            fast = fast.next.next
+            prev = slow
+            slow = slow.next
+        }
+        if(prev){
+            prev.next = slow.next
+        }
+        this.size--
+    }
   
     search(value){
         let current = this.head
@@ -90,7 +117,7 @@ class Node {
         }
         let current = this.head.next
         while(current!=null && current!=this.head){
-            current = current.next
+            current = current.next  
         }
         return current==this.head
     }
@@ -178,6 +205,13 @@ class Node {
   console.log(List.LLtoArray());
  List.ArrayToLinkedList(arr)
  List.print()
+
+
+ console.log("***************middle removed");
+
+ List.removeMid()
+ List.print()
+
   
   
   

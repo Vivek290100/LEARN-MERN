@@ -145,7 +145,7 @@ db.customers.aggregate([{$facet: {totalCustomers: [{ $count: 'total' }],byHomeSt
 db.customers.aggregate([{$group: {_id: '$HomeStatus',avgSalary: { $avg: '$Salary' }}},{$out: 'homeStatusStats'}]);
 
 // $cond
-db.customers.aggregate([{$addFields:{newField:{$cond:{if:{$eq:["$HomeStatus","Own"]},then:"true",else:"false"}}}}])
+db.customers.aggregate([{$addFields:{newField:{$cond:{if:{$eq:["$HomeStatus","Own"]},then:true,else:false}}}}])
 
 //capped collection
 db.createCollection("events", { capped: true, size: 50000, max: 100 });

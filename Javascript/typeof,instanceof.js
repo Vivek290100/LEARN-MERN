@@ -7,5 +7,5 @@ const obj = {
 }
 console.log(typeof obj);
 
-console.log(typeof obj.obj1 === "object")
-console.log(obj.obj1 instanceof Object)
+console.log(typeof obj.obj1 === "object") //true
+console.log(obj.obj1 instanceof Object)   //true
