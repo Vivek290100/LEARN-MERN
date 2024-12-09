@@ -123,6 +123,10 @@ console.log(isPal('malayalam'));
 
 
 
+// remove duplicates
+
+
+
 
 
 

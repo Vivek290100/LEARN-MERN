@@ -96,3 +96,93 @@ heap.insert(6)
 heap.removeMin()
 console.log(heap)
 console.log(heapSort([34,6,12,8,23,1]))
+
+
+
+
+// Sort without heapifyDown
+
+// class Heap{
+//     constructor(){
+//       this.heap = []
+//     }
+  
+//     getparentInd(index){
+//       return Math.floor((index-1)/2)
+//     }
+  
+//     getLeftchildInd(parentInd){
+//       return (parentInd*2)+1
+//     }
+  
+//     getRightchildInd(parentInd){
+//       return (parentInd*2)+2
+//     }
+  
+//     getParent(index){
+//       return this.heap[this.getparentInd(index)]
+//     }
+//     getLeftchild(index){
+//       return this.heap[this.getLeftchildInd(index)]
+//     }
+//     getrightchild(index){
+//       return this.heap[this.getRightchildInd(index)]
+//     }
+//     hasParent(index) {
+//       return index > 0;
+//     }
+      
+  
+//     swap(ind1,ind2){
+//       [this.heap[ind1],this.heap[ind2]] = [this.heap[ind2], this.heap[ind1]]
+//     }
+  
+//     insert(value){
+//       this.heap.push(value)
+//       this.heapifyUp()
+//     }
+  
+//     heapifyUp(){
+//       let currentInd = this.heap.length-1
+//       while(this.hasParent(currentInd)&&this.heap[currentInd]<this.getParent(currentInd)){
+//         this.swap(currentInd,this.getparentInd(currentInd))
+//         currentInd = this.getparentInd(currentInd)
+//       }
+//     }
+  
+//     remove(){   //rebuild
+//       let removeVal = this.heap[0]
+//       this.heap[0] = this.heap.pop()
+//       const temp = [...this.heap]
+//       this.heap = []
+//       for(const val of temp){
+//         this.insert(val)
+//       }
+//       return removeVal
+//     }
+  
+//     sort(arr){
+//       const result = []
+//       for (let i = 0; i < arr.length; i++) {
+//         this.insert(arr[i])
+        
+//       }
+//       for (let i = 0; i < this.heap.length; i++) {
+//         result.push(this.remove())
+        
+//       }
+//       return result
+//     }
+//   }
+  
+  
+  
+//   const heap = new Heap()
+  
+//   heap.insert(23)
+//   heap.insert(233)
+//   heap.insert(243)
+//   heap.insert(43)
+  
+//   console.log(heap.sort([3,6,4,5,1,9,2,8]));
+

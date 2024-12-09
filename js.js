@@ -1,232 +1,180 @@
 
-class Node {
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-  }
-  
-  class linkedlist{
-    constructor(){
-        this.head = null
-        this.size = 0
-    }
-    isEMpty(){
-        return this.size === 0
-    }
-  
-    add(value){
-        const newNode = new Node(value)
-        if(this.isEMpty()){
-            this.head = newNode
-        }else{
-            newNode.next = this.head
-            this.head = newNode
-        }
-        this.size++
-    }
-  
-    addLast(value) {
-        const newNode = new Node(value)
-        if(this.isEMpty()){
-            this.head = newNode
-        }else{
-            let current = this.head
-            while(current.next){
-                current = current.next
-            }
-            current.next = newNode
-        }
-        this.size++
-    }
-  
-    reverse(){
-        let next = null
-        let current = this.head
-        let prev = null
-  
-        while(current){
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        }
-        this.head = prev
-    }
-    addAtk(value, position){
-        const newNode = new Node(value)
-        let current = this.head
-        for(let i=1;i<position-1;i++){
-            current = current.next
-        }
-        newNode.next = current.next
-        current.next = newNode
-    }
-  
-    deletek(position){
-        let current = this.head 
-        let previous = null
-        for(let i=1;i<position;i++){
-            previous = current
-            current = current.next
-        }
-        previous.next = current.next
-    }
+// class Heap{
+//     constructor(){
+//         this.heap = []
+//     }
+//     getParentInd(index){
+//         return Math.floor((index-1)/2)
+//     }
+//     getLeftChildInd(index){
+//         return (index*2)+1
+//     }
+//     getRightChildInd(index){
+//         return (index*2)+2
+//     }
+//     getParent(index){
+//         return this.heap[this.getParentInd(index)]
+//     }
+//     getLeftChild(index){
+//         return this.heap[this.getLeftChildInd(index)]
+//     }
+//     getRightChild(index){
+//         return this.heap[this.getRightChildInd(index)]
+//     }
+//     hasParent(index){
+//         return index>0
+//     }
 
-    mid(){
-        let slow = this.head
-        let fast = this.head
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp()
+//     }
 
-        while(fast&&fast.next){
-            slow = slow.next
-            fast = fast.next.next
-        }
-        return slow.value
-    }
-    removemid(){
-        let slow = this.head
-        let fast = this.head
-        let prev = null
+//     swap(ind1,ind2){
+//         [this.heap[ind1],this.heap[ind2]] = [this.heap[ind2], this.heap[ind1]]
+//     }
 
-        while(fast&&fast.next){
-            prev = slow
-            fast = fast.next.next
-            slow = slow.next
-        }
-        prev.next = slow.next
-    }
+//     heapifyUp(){
+//         let currentInd = this.heap.length-1
+//         while(this.hasParent(currentInd)&&this.heap[currentInd]<this.getParent(currentInd)){
+//             this.swap(currentInd,this.getParentInd(currentInd))
+//             currentInd = this.getParentInd(currentInd)
+//         }
+//     }
 
-    // removeMid(){
-    //     let fast = this.head
-    //     let slow = this.head
-    //     let prev = null
+//     remove(){
+//         let removeVal = this.heap[0]
+//         this.heap[0] = this.heap.pop()
+//         const temp = [...this.heap]
+//         this.heap = []
+//         for (let i = 0; i < temp.length; i++) {
+//             this.insert(temp[i])
+            
+//         }
+//         return removeVal
+//     }
 
-    //     while(fast && fast.next){
-    //         fast = fast.next.next
-    //         prev = slow
-    //         slow = slow.next
-    //     }
-    //     if(prev){
-    //         prev.next = slow.next
-    //     }
-    //     this.size--
-    // }
-  
-    search(value){
-        let current = this.head
-        while(current){
-            if (current.value == value) {
-                return true
-            }
-            current = current.next
-        }
-        return false
-    }
-  
-    checkcircular(){
-        if(this.head === null){
-            return false
-        }
-        let current = this.head.next
-        while(current!=null && current!=this.head){
-            current = current.next  
-        }
-        return current==this.head
-    }
+//     sort(arr){
+//         const result = []
+//         for (let i = 0; i < arr.length; i++) {
+//             this.insert(arr[i])
+//         }
+//         for (let i = 0; i < arr.length; i++) {
+//            result.push(this.remove())
+            
+//         }
+//         return result
+//     }
+// }
 
-    removeDuplicates(){
-        if(this.isEMpty()){
-          return
-        }
-        let current = this.head
-        let prev = null
-        const valSet = new Set()
-    
-        while(current){
-          if(valSet.has(current.value)){
-            prev.next = current.next
-            this.size--
-          }else{
-            valSet.add(current.value)
-            prev = current
-          }
-          current = current.next
-        }
-      }
-  
-    print(){
-        if(this.isEMpty()){
-            console.log("its empty");
-        }else{
-            let current = this.head
-            while(current){
-                console.log(current.value);
-                current = current.next
-            }
-        }
-    }
+// const heap1 = new Heap()
 
-    LLtoArray(){
-        let current = this.head
-        let result = []
-        while(current){
-            result.push(current.value)
-            current = current.next
-        }
-        return result
-    }
-
-    ArrayToLinkedList(arr){
-        for(let i=0;i<arr.length;i++){
-            this.addLast(arr[i])
-        }
-    }
-  }
-  
-  List = new linkedlist
-  List.add(12)
-  List.add(54)
-  List.add(43)
-  List.add(43)
-  
-  List.addLast(11)
-  List.addLast(22)
-  List.addLast(33)
-  
-//   List.reverse()
-//   console.log("********print all*******");
-//   List.print()
-  
-//   List.addAtk(100,2)
-//   console.log("********after add at k*******");
-//   List.print()
-
-//   List.deletek(3)
-//   console.log("********after delete at k*******");
-//   List.print()
-
-//   console.log(List.search(123));
-//   console.log(List.checkcircular());
-
-//   console.log("***************dup removed");
-//   List.removeDuplicates()
-//   List.print()
+// heap1.insert(235)
+// heap1.insert(23)
+// heap1.insert(213)
+// heap1.insert(234)
 
 
-//   let arr = [1,3,5,2,3,6,9,7]
-//   console.log(List.LLtoArray());
-//  List.ArrayToLinkedList(arr)
-//  List.print()
+// console.log(
 
+//     heap1.sort([3,2,5,4,1,6,8,7])
 
-//  console.log("***************middle removed");
-
-List.removemid()
-
- List.print()
+// );
 
   
   
-  
-  
-  
+
+
+const str = "qwertyuittyuuuiop"
+
+// function findlong(str){
+//     let longest = ""
+//     for (let i = 0; i < str.length; i++) {
+//         let count = 1
+//         let string = ""
+//         while(str[i] == str[i+1]){
+//             count++
+//             string+=str[i]
+//             i++
+//         }
+        
+//         if(count>longest.length){
+//             longest=string+str[i]
+//         } 
+//     }
+//     return longest
+// }
+
+// console.log(findlong(str));
+// function fun(arr){
+//     let longest = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         let count = 1
+//         while(arr[i]==arr[i+1]){
+//             count++
+//             i++
+//         }
+//         if(longest<count){
+//             longest = count
+//         }
+//     }
+//     return longest
+// }
+// console.log(fun(str));
+
+
+
+
+// function reverse(arr){
+//     let result = []
+//     for (let i = 0; i < arr.length; i++) {
+//         let num = arr[i]
+//         let reverseNum = 0
+//         while(num>0){
+//             let remains = num%10
+//             reverseNum = reverseNum*10+remains
+//             num = Math.floor(num/10)
+//         }
+//         result.push(reverseNum)
+//     }
+//     return result
+// }
+
+
+
+
+// console.log(reverse([123, 345, 876, 456]))
+
+
+// class People{
+//     constructor(name,email){
+//         this.name = name
+//         this.email = email
+//     }
+// }
+
+// const hi = new People("vivek", "email.com")
+
+// console.log(hi.name);
+
+
+
+let x = 10; // Outer variable
+
+function example() {
+    let x = 20;
+    console.log(x); 
+}
+
+example();
+console.log(x); 
+
+
+
+
+
+
+
+
+
+

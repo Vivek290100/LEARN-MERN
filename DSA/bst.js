@@ -107,6 +107,21 @@ class bst{
         const right = this.height(root.right)
         return Math.max(left,right)+1
     }
+
+    seconDLarge(){
+        let arr = []
+        this.helper(this.root,arr)
+        return arr[1]
+      }
+    
+      helper(root, arr){
+        if(root==null){
+          return arr
+        }
+        this.helper(root.right,arr)
+        arr.push(root.value)
+        this.helper(root.left, arr)
+      }
 }
 
 const BST = new bst()
