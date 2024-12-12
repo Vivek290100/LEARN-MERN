@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="buttonClick">click me</button>
+    <input id="myCheckbox" type="checkbox" />
+    <script>
+      document.getElementById("buttonClick").addEventListener("click", () => {
+        const checkBox = document.getElementById("myCheckbox");
+        checkBox.checked = !checkBox.checked;
+      });
+    </script>
+
+    <div id="parent" style="width: 120px; width: 200px; background-color: red">
+      <button id="child">click</button>
+    </div>
+    <script>
+      document.getElementById("child").addEventListener("click", (event) => {
+        console.log("child clicked");
+        event.stopPropagation();
+      });
+      document.getElementById("parent").addEventListener("click", (event) => {
+        console.log("parent clicked");
+      });
+    </script>
+
+
+    <div id="container" style="width: 50px; height: 50px; background-color: red"></div>
+    <button id="clickButton">click</button>
+    <script>
+      document.getElementById("clickButton").addEventListener("click", (event) => {
+      const container = document.getElementById("container");
+      container.style.backgroundColor = container.style.backgroundColor == "red" ? "yellow" : "red";});
+    </script>
+
+
+
+  </body>
+</html>

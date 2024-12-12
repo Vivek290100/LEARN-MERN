@@ -9,7 +9,7 @@ function reverse(arr){
             let remainder= num%10
             reverseNum = reverseNum*10+remainder
             num = Math.floor(num/10)
-        }
+        }   
         reversedArray.push(reverseNum)
     }
     return reversedArray
