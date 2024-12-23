@@ -16,8 +16,8 @@ const UCParent = () => {
   return (
     <>
     <div>Parent component</div>
-    <button onClick={()=>setCount(prev=>prev+1)}>increment</button><br />
-    <button onClick={handleClick}>increment</button><br />
+    <button onClick={()=>setCount(prev=>prev+1)}>increment1</button><br />
+    <button onClick={handleClick}>increment5</button><br />
     <h1>{count}</h1>
     <h1>{value}</h1>
     <MemoizedChild handleClick={MemoizedFun}/>

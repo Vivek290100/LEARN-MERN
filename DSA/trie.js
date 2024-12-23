@@ -145,6 +145,23 @@ class Trie{
             this.collectwords(node.children[char], word+char, list)
         }
     }
+
+    longestPrefix() {
+        let currentNode = this.root;
+        let prefix = "";
+        while (currentNode) {
+            const keys = Object.keys(currentNode.children);
+            // console.log(keys);
+            
+            if (keys.length === 1 && !currentNode.endWord) {
+                prefix += keys[0];
+                currentNode = currentNode.children[keys[0]];
+            } else {
+                break;
+            }
+        }
+        return prefix;
+    }
 }   
 
 const trie = new Trie()
@@ -152,8 +169,9 @@ const trie = new Trie()
 trie.insert("apple")
 trie.insert("apples")
 trie.insert("appless")
-trie.insert("car")
 
 console.log(trie.search("bus"));
 console.log(trie.startwith("a"));
 console.log(trie.autocomplete("a"));
+console.log(trie.longestPrefix());
+

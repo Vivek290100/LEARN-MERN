@@ -50,12 +50,12 @@ const App = () => {
       {/* <Customparent/> */}
       {/* <RMParent/> */}
       {/* <UseMemoHook/> */}
-      {/* <UCParent/> */}
+      <UCParent/>
       {/* <UseRef/> */}
       {/* <CPParent/> */}
       {/* <HocApp/> */}
       {/* <Form/> */}
-      <UseEffect/>
+      {/* <UseEffect/> */}
     </div>
   )
 }
