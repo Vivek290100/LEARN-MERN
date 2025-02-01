@@ -9,7 +9,7 @@ function customHOC(arr,fun){
 function fun(x){
  return x*3
 }
-const fun1 = fun()
-const ans = customHOC([2,5,3,1,4,7],fun1)
+// const fun1 = fun()
+const ans = customHOC([2,5,3,1,4,7],fun)
 
 console.log(ans);

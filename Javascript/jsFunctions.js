@@ -108,3 +108,8 @@
 // console.log(fun());
 
 // 13. Function Constructor
+// first order function 
+// first calss function 
+// higher order function
+// currying function 
+// pure function

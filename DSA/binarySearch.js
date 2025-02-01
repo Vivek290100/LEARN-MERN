@@ -32,9 +32,9 @@ function binarySearchrec(arr,target,start = 0, end = arr.length-1){
         return true
     }
     else if(arr[mid]<target){
-        return binarySearchrec(arr,target,mid+1,end)
+        return binarySearchrec(arr,mid+1,end)
     }else{
-        return binarySearchrec(arr,target,start,mid-1)
+        return binarySearchrec(arr,start,mid-1)
     }
   }
   

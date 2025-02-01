@@ -40,5 +40,41 @@
 
 
 
+
+
+
+
+// handle promise using async/await
+// const fetchData = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Data fetched"), 2000;
+//   });
+// });
+
+// async function getData() {
+//   const result = await fetchData;
+//   console.log(result);
+// }
+
+// getData();
+
+const getdata = new Promise((resolve, reject) => {
+    const val = true;
+    if (val) {
+      resolve("resolved");
+    } else {
+      reject("rejected");
+    }
+  });
+  
+  async function getResut() {
+    const data = await getdata;
+    console.log("data", data);
+    // return data xxxxxx
+  }
+  
+  getResut();
+  
+
   
 

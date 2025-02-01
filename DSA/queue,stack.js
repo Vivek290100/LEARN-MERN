@@ -294,7 +294,7 @@ console.log(stack);
 //     //     }
 //     // }
 
-//     removeDuplicates(){
+//     removeDuplicates(){     //xxxxxxxxxxxxxxxxxxxxxxxxxxx
 //         let current = this.top
 //         while(current&&current.next){
 //             if(current.value==current.next.value){

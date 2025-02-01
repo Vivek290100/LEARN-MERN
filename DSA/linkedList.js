@@ -1,4 +1,4 @@
-
+    
 class Node {
     constructor(value){
         this.value = value
@@ -78,7 +78,7 @@ class Node {
         let fast = this.head
 
         while(fast&&fast.next){
-            slow = slow.next
+            slow = slow.next    
             fast = fast.next.next
         }
         return slow
