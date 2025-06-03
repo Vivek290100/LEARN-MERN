@@ -25,6 +25,7 @@ import UseRef from "./UseRef/UseRef"
 import HocApp from './HOC/HocApp'
 import Form from './form/Form';
 import UseEffect from './UseEffect/UseEffect'
+import parent from parent-to
 
 const App = () => {
 
@@ -56,6 +57,7 @@ const App = () => {
       {/* <HocApp/> */}
       {/* <Form/> */}
       {/* <UseEffect/> */}
+      <parent/>
     </div>
   )
 }
