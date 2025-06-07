@@ -232,24 +232,24 @@
 
 // }
 
-const arr = [3,4,5,6,7,8]
+// const arr = [3,4,5,6,7,8]
 
-function sum(arr, i){
-    let sum = 0
-    if(arr.length <=1){
-        return 0
-    }
+// function sum(arr, i){
+//     let sum = 0
+//     if(arr.length <=1){
+//         return 0
+//     }
 
-    return  sum+=sum(add(arr,i++))
-}
+//     return  sum+=sum(add(arr,i++))
+// }
 
-function add(arr){
-    for (let i = 0; i < arr.length; i++) {
-        return arr[i]
+// function add(arr){
+//     for (let i = 0; i < arr.length; i++) {
+//         return arr[i]
         
-    }
-}
+//     }
+// }
 
 
-console.log(sum(arr));
+// console.log(sum(arr));
 

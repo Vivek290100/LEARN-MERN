@@ -9,6 +9,7 @@ const obj = {
   }
   
   const copy = structuredClone(obj)
+  // const copy = JSON.parse(JSON.stringify(obj))
   copy.name = "vvvvvvvv"
   copy.place.place1 = "*******"
   
