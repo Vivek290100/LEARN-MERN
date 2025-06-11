@@ -1,5 +1,6 @@
 // import React, { createContext, useContext } from 'react'
 
+
 // const nameContext = createContext()
 
 // export const Context = () => {
@@ -18,20 +19,39 @@
 // }
 
 
-import React, { createContext, useContext } from 'react'
+// import React, { createContext, useContext } from 'react'
+
+// const nameContext = createContext()
+// const name = "vivek"
+// export const Context = ({children}) => {
+//   return (
+//     <div>
+//       <nameContext.Provider value = {name}>
+//         {children}
+//       </nameContext.Provider>
+//     </div>
+//   )
+// }
+
+// export const useName=()=>{
+//   return useContext(nameContext)
+// }
+
+import { createContext, useContext } from "react"
+
 
 const nameContext = createContext()
 const name = "vivek"
-export const Context = ({children}) => {
+export const context = ({children}) => {
   return (
     <div>
-      <nameContext.Provider value = {name}>
+      <context.Provider value = {name}>
         {children}
-      </nameContext.Provider>
+      </context.Provider>
     </div>
   )
 }
 
-export const useName=()=>{
+export const useName =  () =>{
   return useContext(nameContext)
 }

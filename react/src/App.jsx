@@ -25,7 +25,8 @@ import UseRef from "./UseRef/UseRef"
 import HocApp from './HOC/HocApp'
 import Form from './form/Form';
 import UseEffect from './UseEffect/UseEffect'
-import parent from parent-to
+import RenderPropsChild from './renderProps/RenderPropsChild'
+import CRParent from './conditionalRendering/CRParent';
 
 const App = () => {
 
@@ -48,16 +49,18 @@ const App = () => {
       {/* <Context/> */}
       {/* <Cchild/>
       <Cparent/> */}
-      {/* <Customparent/> */}
+      <Customparent/>
       {/* <RMParent/> */}
       {/* <UseMemoHook/> */}
-      <UCParent/>
+      {/* <UCParent/> */}
       {/* <UseRef/> */}
       {/* <CPParent/> */}
       {/* <HocApp/> */}
       {/* <Form/> */}
       {/* <UseEffect/> */}
-      <parent/>
+      {/* <RenderPropsChild/> */}
+      {/* <CRParent/> */}
+
     </div>
   )
 }

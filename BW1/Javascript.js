@@ -115,13 +115,13 @@
   
 // }
 
-const obj = {
-  name: "vivek",
-  email: "@gmail.com",
-  place: {
-    city: "calicut"
-  }
-}
+// const obj = {
+//   name: "vivek",
+//   email: "@gmail.com",
+//   place: {
+//     city: "calicut"
+//   }
+// }
 
 // const result = name.bind(obj,2,4)
 // result()
@@ -153,3 +153,135 @@ const obj = {
 // console.log(obj);
 // console.log(copy);
 // ===========================================================
+
+// prototype chain, inheritance
+// class Person{
+//   constructor(name, email){
+//     this.name = name
+//     this.email = email
+//   }
+
+//   greet(){
+//     console.log(this.name);
+    
+//   }
+// }
+
+// const employee = new Person("vivek", "@gmail.com")
+// employee.greet()
+// console.log(employee.name);
+
+
+
+// function Person(name, email){
+//   this.name = name
+//   this.email = email
+// }
+
+// Person.prototype.greet = function(){
+//   console.log(this.name);
+// }
+
+// const employee = new Person("vivek", "@gmail.com")
+// employee.greet()
+// console.log(employee.name);
+
+// ====================================================
+// factory function - regular fun that create and return new object each call
+// function sayHi(name, email){
+//   return {
+//     name: name,
+//     email: email,
+//     greet(){
+//       console.log(`Hi ${this.name}`);
+//     }
+//   }
+// }
+
+// const hi = sayHi("vivek", "@gmail.com")
+// hi.greet()
+
+
+// ============================
+// pure function, impure
+// function fun(a,b){
+//   return a + b + Math.random();
+// }
+
+// console.log(fun(2,3));
+// console.log(fun(2,3));
+
+// ===============================
+// function Person(name, email) {
+//   this.name = name;
+//   this.email = email;
+//   this.greet = function () {
+//     console.log(`Hi, I'm ${this.name}`);
+//   };
+// }
+
+// const person1 = new Person("Vivek", "vivek@gmail.com");
+// person1.greet(); 
+
+// ================
+// rest
+// function fun(...arr){
+//   return arr
+// }
+
+// console.log(fun(4,5,6,7,8,9,0));
+
+// ======================================
+// Promise scoping
+// const a = 10
+// new Promise((resolve)=>{
+//    resolve(20)
+// }).then((result)=>{
+//   console.log(a+result);
+  
+// })
+
+// ======================
+// promise chaining - 1st outupt is input for 2nd
+// const promise1 = new Promise((resolve,reject)=>{
+//   resolve("promise1")
+// })
+// const promise2 = new Promise((resolve,reject)=>{
+//   resorlve("promise2")
+// })
+// const promise3 = new Promise((resolve,reject)=>{
+//   resolve("promise3")
+// })
+
+// promise1.then((result)=>{
+//   console.log(result);
+//   return promise2
+// }).then((result)=>{
+//   console.log(result);
+//   return promise3
+// }).then((result)=>{
+//   console.log(result);
+//   console.log("completed");
+  
+// }).catch((error)=>{
+//   console.log(error);
+  
+// })
+
+
+// ===============================================
+function findLargeSubstring(str){
+  let ans = ""
+  for (let i = 0; i < str.length; i++) {
+    let string = ""
+    while(str[i]==str[i+1]){
+      string+=str[i]
+      i++
+    }
+    if(string.length>ans.length){
+      ans = string+str[i]
+    }
+  }
+  return ans
+}
+console.log(findLargeSubstring("qweeeeeertyyyyyyyyuuu"));
