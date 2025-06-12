@@ -19,7 +19,7 @@ class Stack{
         }
         let string = ''
         while(newStack.items.length>0){
-            string+=newStack.pop()
+            string+=newStack.items.pop()
         }
         return string
     }
