@@ -123,12 +123,183 @@
 // console.log(sum([2,3,4,5,6,7]));
 
 
-function sum(n){
-    if(n<=1){
-        return n
+// function sum(n){
+//     if(n<=1){
+//         return n
+//     }
+//     return sum(n-1)+sum(n-2)
+// }
+
+// console.log(sum(2));
+
+// =====================================
+// LinkedList
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
     }
-    return sum(n-1)+sum(n-2)
 }
 
-console.log(sum(2));
+class LinkedList{
+    constructor(){
+        this.head = null
+        this.size = 0
+    }
 
+    isEmpty(){
+        return this.size == 0
+    }
+
+    addFirst(value){
+        const newNode = new Node(value)
+        if(this.isEmpty()){
+            this.head = newNode
+        }else{
+            newNode.next = this.head
+            this.head = newNode
+        }
+        this.size++
+    }
+
+    addLast(value){
+        const newNode = new Node(value)
+        if (this.isEmpty()) {
+            this.head = newNode
+        }else{
+            let current = this.head
+            while(current.next){
+                current = current.next
+            }
+            current.next = newNode
+        }
+        this.size++
+    }
+
+    reverse(){
+        let current = this.head
+        let next = null
+        let prev= null
+
+        while (current) {
+            next = current.next
+            current.next= prev
+            prev = current
+            current = next
+        }
+        this.head = prev
+    }
+
+    addAtK(value, position){
+        const newNode = new Node(value)
+        let current = this.head
+        for (let i = 0; i < position-1; i++) {
+            current = current.next
+        }
+        newNode.next = current.next
+        current.next = newNode
+    }
+
+    deleteAtK(position){
+        let current = this.head
+        let prev = null
+        for (let i = 0; i < position; i++) {
+            prev = current
+            current = current.next
+        }
+        prev.next = current.next
+    }
+
+    mid(){
+        let slow = this.head
+        let fast = this.head
+        while(fast && fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow
+    }
+
+    deleteMid(){
+        let slow = this.head
+        let fast = this.head
+        let prev = null
+
+        while(fast && fast.next){
+            fast = fast.next.next
+            prev = slow
+            slow = slow.next
+        }
+        if(prev){
+            prev.next = slow.next
+        }
+        this.size--
+    }
+
+    print(){
+        if (this.isEmpty()) {
+            return "its empty"
+        }else{
+            let current = this.head
+            while (current) {
+                console.log(current.value);
+                current = current.next
+            }
+        }
+    }
+}
+
+const LL = new LinkedList()
+// LL.addFirst(12)
+// LL.addFirst(122)
+// LL.addFirst(123)
+
+LL.addLast(1255)
+LL.addLast(12255)
+LL.addLast(12355)
+
+
+
+// LL.reverse()
+// LL.addAtK(100,2)
+// LL.deleteAtK(2)
+// console.log(LL.mid().value);
+LL.deleteMid()
+LL.print()
+
+
+
+// ==========================
+// Stack
+// class Stack{
+//     constructor(){
+//         this.items = []
+//     }
+
+//     push(value){
+//         this.items.push(value)
+//     }
+
+//     pop(){
+//         this.items.pop()
+//     }
+
+//     reverseString(name){
+//         const newStack = new Stack()
+//         for (let i = 0; i < name.length; i++) {
+//             newStack.push(name[i])
+//         }
+//         let ans = ""
+//         while (newStack.items.length>0) {
+//             ans+=newStack.items.pop()
+//         }
+//         return ans
+//     }
+
+//     reverserStack(arr){
+        
+//     }
+// }
+
+// const stack = new Stack()
+// console.log(stack.reverseString("vivek"));
