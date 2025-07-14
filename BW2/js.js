@@ -701,5 +701,117 @@
 
 
 
+class Node{
+    constructor(value){
+        this.value = value
+        this.left = null
+        this.right = null
+    }
+}
+
+class BST{
+    constructor(){
+        this.root = null
+    }
+
+    isEmpty(){
+        return this.root == null
+    }
+
+    insert(value){
+        const newNode = new Node(value)
+        if(this.isEmpty()){
+            this.root = newNode
+        }else{
+            this.insertNode(this.root, newNode)
+        }
+    }
+
+    insertNode(root, node){
+        if(root.value>node.value){
+            if(root.left == null){
+                root.left = node
+            }else{
+                return this.insertNode(root.left, node)
+            }
+        }else{
+            if(root.right == null){
+                root.right = node
+            }else{
+                return this.insertNode(root.right, node)
+            }
+        }
+    }
+
+    search(root, value){
+        if(!root){
+            return "its empty"
+        }else{
+            if(root.value == value){
+                return true
+            }else if(root.value > value){
+                return this.search(root.left, value)
+            }else{
+                return this.search(root.right, value)
+            }
+        }
+    }
+
+    min(root){
+        if(!root.left){
+            return root.value
+        }else{
+            return this.min(root.left)
+        }
+    }
+
+    levelOrder(){
+        let arr = []
+        arr.push(this.root)
+        while(arr.length){
+            let current = arr.shift()
+            console.log(current.value);
+            if(current.left){
+                arr.push(current)
+            }
+            if(current.right){
+                arr.push(current.right)
+            }
+        }
+
+    }
+
+    inOrder(root){
+        if(!root){
+            return ""
+        }else{
+            this.inOrder(root.left)
+            console.log(root.value);
+            this.inOrder(root.right)
+            
+        }
+    }
+
+    height(root){
+        if(!root){
+            return
+        }
+        let left = this.height(root.left)
+        let right = this.height(root.right)
+        return Math.max(left,right) + 1
+    }
+}
+
+
+const bst = new BST()
+bst.insert(23)
+bst.insert(232)
+bst.insert(233)
+// console.log(bst.search(bst.root, 232));
+// console.log(bst.min(bst.root));
+// bst.levelOrder()
+bst.inOrder(bst.root)
+
+
 
 
