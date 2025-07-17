@@ -129,7 +129,7 @@ class bst {
 
     deleteNode(root, value) {
         if (!root) {
-            return
+            return null
         }
         if (value < root.value) {
             root.left = this.deleteNode(root.left, value)
@@ -137,7 +137,7 @@ class bst {
             root.right = this.deleteNode(root.right, value)
         } else {
             if (root.left == null && root.right == null) {
-                return
+                return null
             }
             if (root.left == null) {
                 return root.right
