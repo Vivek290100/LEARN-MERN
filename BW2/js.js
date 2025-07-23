@@ -829,4 +829,13 @@ class TRIE{
     constructor(){
         this.root = new Node()
     }
+
+    insert(word){
+        const currentNode = this.root
+        for(const char of word){
+            if(!currentNode.children[char ]){
+                currentNode.children[char] = new Node()
+            }
+        }
+    }
 }
