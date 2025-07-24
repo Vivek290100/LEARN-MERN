@@ -710,132 +710,189 @@
 // }
 
 
+// class BST {
+//     constructor() {
+//         this.root = null
+//     }
+
+//     isEmpty() {
+//         return this.root == null
+//     }
+
+//     insert(value) {
+//         const newNode = new Node(value)
+//         if (this.isEmpty()) {
+//             this.root = newNode
+//         } else {
+//             this.insertNode(this.root, newNode)
+//         }
+//     }
+
+//     insertNode(root, node) {
+//         if (root.value > node.value) {
+//             if (root.left == null) {
+//                 root.left = node
+//             } else {
+//                 return this.insertNode(root.left, node)
+//             }
+//         } else {
+//             if (root.right == null) {
+//                 root.right = node
+//             } else {
+//                 return this.insertNode(root.right, node)
+//             }
+//         }
+//     }
+
+//     search(root, value) {
+//         if (!root) {
+//             return "its empty"
+//         } else {
+//             if (root.value == value) {
+//                 return true
+//             } else if (root.value > value) {
+//                 return this.search(root.left, value)
+//             } else {
+//                 return this.search(root.right, value)
+//             }
+//         }
+//     }
+
+//     min(root) {
+//         if (!root.left) {
+//             return root.value
+//         } else {
+//             return this.min(root.left)
+//         }
+//     }
+
+//     levelOrder() {
+//         let arr = []
+//         arr.push(this.root)
+//         while (arr.length) {
+//             let current = arr.shift()
+//             console.log(current.value);
+//             if (current.left) {
+//                 arr.push(current)
+//             }
+//             if (current.right) {
+//                 arr.push(current.right)
+//             }
+//         }
+
+//     }
+
+//     inOrder(root) {
+//         if (!root) {
+//             return ""
+//         } else {
+//             this.inOrder(root.left)
+//             console.log(root.value);
+//             this.inOrder(root.right)
+
+//         }
+//     }
+
+//     height(root) {
+//         if (!root) {
+//             return
+//         }
+//         let left = this.height(root.left)
+//         let right = this.height(root.right)
+//         return Math.max(left, right) + 1
+//     }
+// }
 
 
-class BST{
-    constructor(){
-        this.root = null
-    }
-
-    isEmpty(){
-        return this.root == null
-    }
-
-    insert(value){
-        const newNode = new Node(value)
-        if(this.isEmpty()){
-            this.root = newNode
-        }else{
-            this.insertNode(this.root, newNode)
-        }
-    }
-
-    insertNode(root, node){
-        if(root.value>node.value){
-            if(root.left == null){
-                root.left = node
-            }else{
-                return this.insertNode(root.left, node)
-            }
-        }else{
-            if(root.right == null){
-                root.right = node
-            }else{
-                return this.insertNode(root.right, node)
-            }
-        }
-    }
-
-    search(root, value){
-        if(!root){
-            return "its empty"
-        }else{
-            if(root.value == value){
-                return true
-            }else if(root.value > value){
-                return this.search(root.left, value)
-            }else{
-                return this.search(root.right, value)
-            }
-        }
-    }
-
-    min(root){
-        if(!root.left){
-            return root.value
-        }else{
-            return this.min(root.left)
-        }
-    }
-
-    levelOrder(){
-        let arr = []
-        arr.push(this.root)
-        while(arr.length){
-            let current = arr.shift()
-            console.log(current.value);
-            if(current.left){
-                arr.push(current)
-            }
-            if(current.right){
-                arr.push(current.right)
-            }
-        }
-
-    }
-
-    inOrder(root){
-        if(!root){
-            return ""
-        }else{
-            this.inOrder(root.left)
-            console.log(root.value);
-            this.inOrder(root.right)
-            
-        }
-    }
-
-    height(root){
-        if(!root){
-            return
-        }
-        let left = this.height(root.left)
-        let right = this.height(root.right)
-        return Math.max(left,right) + 1
-    }
-}
-
-
-const bst = new BST()
-bst.insert(23)
-bst.insert(232)
-bst.insert(233)
+// const bst = new BST()
+// bst.insert(23)
+// bst.insert(232)
+// bst.insert(233)
 // console.log(bst.search(bst.root, 232));
 // console.log(bst.min(bst.root));
 // bst.levelOrder()
-bst.inOrder(bst.root)
+// bst.inOrder(bst.root)
 
 
 
 
-class Node{
-    constructor(){
+class Node {
+    constructor() {
         this.children = {}
-        this.endword = true
+        this.endword = false
     }
 }
 
-class TRIE{
-    constructor(){
+class TRIE {
+    constructor() {
         this.root = new Node()
     }
 
-    insert(word){
-        const currentNode = this.root
-        for(const char of word){
-            if(!currentNode.children[char ]){
+    insert(word) {
+        let currentNode = this.root
+        for (const char of word) {
+            if (!currentNode.children[char]) {
                 currentNode.children[char] = new Node()
             }
+            currentNode = currentNode.children[char]
+        }
+        currentNode.endword = true
+    }
+
+    search(word) {
+        let currentNode = this.root
+        for (const char of word) {
+            if (!currentNode.children[char]) {
+                return false
+            }
+            currentNode = currentNode.children[char]
+        }
+        return currentNode.endword
+    }
+
+    startWith(word) {
+        let currentNode = this.root
+        for (const char of word) {
+            if (!currentNode.children[char]) {
+                return false
+            }
+            currentNode = currentNode.children[char]
+        }
+        return true
+    }
+
+    autoComplete(word){
+        let currentNode = this.root
+        for(const char of word){
+            if(!currentNode.children[char]){
+                return  []
+            }
+            currentNode = currentNode.children[char]
+        }
+        let list = []
+        this.collectWords(currentNode, word, list)
+        return list
+    }
+
+    collectWords(node, word, list){
+        if(node.endword){
+            list.push(word)
+        }
+        for(const char in node.children){
+            this.collectWords(node.children[char], word+char, list)
         }
     }
 }
+
+const trie = new TRIE()
+trie.insert("app")
+trie.insert("apple")
+trie.insert("apples")
+trie.insert("bike")
+
+console.log(trie.search("app"))
+console.log(trie.startWith("a"))
+console.log(trie.autoComplete("a"))
+
+
+console.log(trie);
