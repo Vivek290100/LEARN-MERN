@@ -816,83 +816,126 @@
 
 
 
-class Node {
-    constructor() {
-        this.children = {}
-        this.endword = false
+// class Node {
+//     constructor() {
+//         this.children = {}
+//         this.endword = false
+//     }
+// }
+
+// class TRIE {
+//     constructor() {
+//         this.root = new Node()
+//     }
+
+//     insert(word) {
+//         let currentNode = this.root
+//         for (const char of word) {
+//             if (!currentNode.children[char]) {
+//                 currentNode.children[char] = new Node()
+//             }
+//             currentNode = currentNode.children[char]
+//         }
+//         currentNode.endword = true
+//     }
+
+//     search(word) {
+//         let currentNode = this.root
+//         for (const char of word) {
+//             if (!currentNode.children[char]) {
+//                 return false
+//             }
+//             currentNode = currentNode.children[char]
+//         }
+//         return currentNode.endword
+//     }
+
+//     startWith(word) {
+//         let currentNode = this.root
+//         for (const char of word) {
+//             if (!currentNode.children[char]) {
+//                 return false
+//             }
+//             currentNode = currentNode.children[char]
+//         }
+//         return true
+//     }
+
+//     autoComplete(word){
+//         let currentNode = this.root
+//         for(const char of word){
+//             if(!currentNode.children[char]){
+//                 return  []
+//             }
+//             currentNode = currentNode.children[char]
+//         }
+//         let list = []
+//         this.collectWords(currentNode, word, list)
+//         return list
+//     }
+
+//     collectWords(node, word, list){
+//         if(node.endword){
+//             list.push(word)
+//         }
+//         for(const char in node.children){
+//             this.collectWords(node.children[char], word+char, list)
+//         }
+//     }
+// }
+
+// const trie = new TRIE()
+// trie.insert("app")
+// trie.insert("apple")
+// trie.insert("apples")
+// trie.insert("bike")
+
+// console.log(trie.search("app"))
+// console.log(trie.startWith("a"))
+// console.log(trie.autoComplete("a"))
+
+
+// console.log(trie);
+
+
+class Graph{
+    constructor(){
+        this.adjacncyList = {}
+    }
+
+    addVertex(vertex){
+        if(this.adjacncyList[vertex]){
+            this.adjacncyList[vertex] = []
+        }
+    }
+
+    addEdges(vertex1, vertex2){
+        if(!this.adjacncyList[vertex1]){
+            this.addVertex(vertex1)
+        }
+        if(!this.adjacncyList[vertex2]){
+            this.addVertex(vertex2)
+        }
+        this.adjacncyList[vertex1].ush(vertex2)
+        this.adjacncyList[vertex2].ush(vertex1)
+    }
+
+    bfs(start){
+        const queue = start
+        const result = []
+        const visited = {}
+        visited[start] = true
+
+        while(queue.length){
+            let vertex = queue.shift()
+            result.push(vertex)
+
+            this.adjacncyList[vertex].forEach(element => {
+                if(!visited[vertex]){
+                    queue.push(element)
+                    visited[element] = true
+                }
+            });
+        }
     }
 }
-
-class TRIE {
-    constructor() {
-        this.root = new Node()
-    }
-
-    insert(word) {
-        let currentNode = this.root
-        for (const char of word) {
-            if (!currentNode.children[char]) {
-                currentNode.children[char] = new Node()
-            }
-            currentNode = currentNode.children[char]
-        }
-        currentNode.endword = true
-    }
-
-    search(word) {
-        let currentNode = this.root
-        for (const char of word) {
-            if (!currentNode.children[char]) {
-                return false
-            }
-            currentNode = currentNode.children[char]
-        }
-        return currentNode.endword
-    }
-
-    startWith(word) {
-        let currentNode = this.root
-        for (const char of word) {
-            if (!currentNode.children[char]) {
-                return false
-            }
-            currentNode = currentNode.children[char]
-        }
-        return true
-    }
-
-    autoComplete(word){
-        let currentNode = this.root
-        for(const char of word){
-            if(!currentNode.children[char]){
-                return  []
-            }
-            currentNode = currentNode.children[char]
-        }
-        let list = []
-        this.collectWords(currentNode, word, list)
-        return list
-    }
-
-    collectWords(node, word, list){
-        if(node.endword){
-            list.push(word)
-        }
-        for(const char in node.children){
-            this.collectWords(node.children[char], word+char, list)
-        }
-    }
-}
-
-const trie = new TRIE()
-trie.insert("app")
-trie.insert("apple")
-trie.insert("apples")
-trie.insert("bike")
-
-console.log(trie.search("app"))
-console.log(trie.startWith("a"))
-console.log(trie.autoComplete("a"))
-
-
-console.log(trie);
