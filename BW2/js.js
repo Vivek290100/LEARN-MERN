@@ -904,7 +904,7 @@ class Graph{
     }
 
     addVertex(vertex){
-        if(this.adjacncyList[vertex]){
+        if(!this.adjacncyList[vertex]){
             this.adjacncyList[vertex] = []
         }
     }
@@ -916,12 +916,12 @@ class Graph{
         if(!this.adjacncyList[vertex2]){
             this.addVertex(vertex2)
         }
-        this.adjacncyList[vertex1].ush(vertex2)
-        this.adjacncyList[vertex2].ush(vertex1)
+        this.adjacncyList[vertex1].push(vertex2)
+        this.adjacncyList[vertex2].push(vertex1)
     }
 
     bfs(start){
-        const queue = start
+        const queue = [start]
         const result = []
         const visited = {}
         visited[start] = true
@@ -931,7 +931,7 @@ class Graph{
             result.push(vertex)
 
             this.adjacncyList[vertex].forEach(element => {
-                if(!visited[vertex]){
+                if(!visited[element]){
                     queue.push(element)
                     visited[element] = true
                 }
@@ -939,6 +939,49 @@ class Graph{
         }
         return result
     }
+
+    dfs(start){
+        const result = []
+        const visited = {}
+
+        function helper(vertex){
+            if(!vertex){
+                return
+            }
+            result.push(vertex)
+            visited[vertex] = true
+
+            this.adjacncyList[vertex].forEach(element=>{
+                if(!vertex[element]){
+                    helper(element)
+                }
+            })
+        }
+        helper(start)
+        return result
+    }
 }
 
-c
+const graph =  new Graph()
+graph.addVertex('A')
+graph.addVertex('B')
+graph.addVertex('C')
+graph.addVertex('D')
+graph.addVertex('E')
+graph.addVertex('F')
+
+graph.addEdges('A','B')
+graph.addEdges('A','C')
+graph.addEdges('B','D')
+graph.addEdges('C','E')
+graph.addEdges('D','F')
+graph.addEdges('E','F')
+
+
+
+// console.log(graph);
+
+console.log(graph.bfs('A'));
+console.log(graph.bfs('A'));
+
+
