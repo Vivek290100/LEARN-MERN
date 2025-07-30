@@ -898,90 +898,90 @@
 // console.log(trie);
 
 
-class Graph{
-    constructor(){
-        this.adjacncyList = {}
-    }
+// class Graph{
+//     constructor(){
+//         this.adjacncyList = {}
+//     }
 
-    addVertex(vertex){
-        if(!this.adjacncyList[vertex]){
-            this.adjacncyList[vertex] = []
-        }
-    }
+//     addVertex(vertex){
+//         if(!this.adjacncyList[vertex]){
+//             this.adjacncyList[vertex] = []
+//         }
+//     }
 
-    addEdges(vertex1, vertex2){
-        if(!this.adjacncyList[vertex1]){
-            this.addVertex(vertex1)
-        }
-        if(!this.adjacncyList[vertex2]){
-            this.addVertex(vertex2)
-        }
-        this.adjacncyList[vertex1].push(vertex2)
-        this.adjacncyList[vertex2].push(vertex1)
-    }
+//     addEdges(vertex1, vertex2){
+//         if(!this.adjacncyList[vertex1]){
+//             this.addVertex(vertex1)
+//         }
+//         if(!this.adjacncyList[vertex2]){
+//             this.addVertex(vertex2)
+//         }
+//         this.adjacncyList[vertex1].push(vertex2)
+//         this.adjacncyList[vertex2].push(vertex1)
+//     }
 
-    bfs(start){
-        const queue = [start]
-        const result = []
-        const visited = {}
-        visited[start] = true
+//     bfs(start){
+//         const queue = [start]
+//         const result = []
+//         const visited = {}
+//         visited[start] = true
 
-        while(queue.length){
-            let vertex = queue.shift()
-            result.push(vertex)
+//         while(queue.length){
+//             let vertex = queue.shift()
+//             result.push(vertex)
 
-            this.adjacncyList[vertex].forEach(element => {
-                if(!visited[element]){
-                    queue.push(element)
-                    visited[element] = true
-                }
-            });
-        }
-        return result
-    }
+//             this.adjacncyList[vertex].forEach(element => {
+//                 if(!visited[element]){
+//                     queue.push(element)
+//                     visited[element] = true
+//                 }
+//             });
+//         }
+//         return result
+//     }
 
-    dfs(start){
-        const result = []
-        const visited = {}
+//     dfs(start){
+//         const result = []
+//         const visited = {}
 
-        function helper(vertex){
-            if(!vertex){
-                return
-            }
-            result.push(vertex)
-            visited[vertex] = true
+//         function helper(vertex){
+//             if(!vertex){
+//                 return
+//             }
+//             result.push(vertex)
+//             visited[vertex] = true
 
-            this.adjacncyList[vertex].forEach(element=>{
-                if(!vertex[element]){
-                    helper(element)
-                }
-            })
-        }
-        helper(start)
-        return result
-    }
-}
+//             this.adjacncyList[vertex].forEach(element=>{
+//                 if(!vertex[element]){
+//                     helper(element)
+//                 }
+//             })
+//         }
+//         helper(start)
+//         return result
+//     }
+// }
 
-const graph =  new Graph()
-graph.addVertex('A')
-graph.addVertex('B')
-graph.addVertex('C')
-graph.addVertex('D')
-graph.addVertex('E')
-graph.addVertex('F')
+// const graph =  new Graph()
+// graph.addVertex('A')
+// graph.addVertex('B')
+// graph.addVertex('C')
+// graph.addVertex('D')
+// graph.addVertex('E')
+// graph.addVertex('F')
 
-graph.addEdges('A','B')
-graph.addEdges('A','C')
-graph.addEdges('B','D')
-graph.addEdges('C','E')
-graph.addEdges('D','F')
-graph.addEdges('E','F')
+// graph.addEdges('A','B')
+// graph.addEdges('A','C')
+// graph.addEdges('B','D')
+// graph.addEdges('C','E')
+// graph.addEdges('D','F')
+// graph.addEdges('E','F')
 
 
 
-// console.log(graph);
+// // console.log(graph);
 
-console.log(graph.bfs('A'));
-console.log(graph.bfs('A'));
+// console.log(graph.bfs('A'));
+// console.log(graph.bfs('A'));
 
 
