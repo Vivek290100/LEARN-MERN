@@ -16,7 +16,6 @@
 
 // export default UseCustomHook;
 
-import React from 'react'
 import useCustom from './CustomHook'
 const UseCustomHook = () => {
   const {count, increment, decrement} = useCustom()
