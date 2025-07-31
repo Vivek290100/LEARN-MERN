@@ -985,3 +985,18 @@
 // console.log(graph.bfs('A'));
 
 
+// import React, { useState } from 'react'
+
+// const useCustom = () => {
+//    const [count, setCount] = useState(0)
+
+//    const increment = () =>{
+//       setCount((prev)=>prev+1)
+//    }
+//    const decrement = () =>{
+//       setCount((prev)=>prev-1)
+//    }
+//    return {count, increment, decrement}
+// }
+
+// export default useCustom
