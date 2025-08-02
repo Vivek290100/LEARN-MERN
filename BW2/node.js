@@ -1,11 +1,11 @@
-// const express = require("express")
+const express = require("express")
 
-// const app = express()
+const app = express()
 
 
-// app.listen(3000,() =>{
-//     console.log("http://localhost:4000");
-// })
+app.listen(3000,() =>{
+    console.log("http://localhost:4000");
+})
 
 
 const http = require('http');
