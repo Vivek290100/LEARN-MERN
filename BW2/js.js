@@ -984,3 +984,14 @@
 // console.log(graph.bfs('A'));
 // console.log(graph.bfs('A'));
 
+
+const s =[1,2,3,4,5]
+function mul(s){
+const ans=[]
+for(let i=0;i<s.length;i++){
+    ans.push(s[i]/2)
+}
+console.log(ans)
+}
+mul(s)
+// console.log(mul(s))
