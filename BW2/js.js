@@ -985,4 +985,37 @@
 // console.log(graph.bfs('A'));
 
 
+const str = "qqqwwwwweerrttttttttyyy"
+// let freq ={}
+// for(let i=0;i<str.length;i++){
+//     freq[str[i]]=(freq[str[i]] || 0)+1
+// }
+// let large = 0
+// Object.keys(freq).forEach(key=>{
+//     if (freq[key] > large) {
+//         large = freq[key]
+//     }
+// })
+// console.log(large);
+
+
+
+function findLongestSubstring(str) {
+    let ans = ""
+    for(let i = 0 ; i< str.length ; i++){
+        let string = str[i]
+        while(str[i]==str[i+1]){
+            string+=str[i+1]
+            i++
+        }
+        if(string.length>ans.length){
+            ans = string
+        }
+    }
+    return ans
+}
+
+console.log(findLongestSubstring(str));
+
+
 
