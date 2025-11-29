@@ -1,3 +1,4 @@
+// anagram
 const a = "boy";
 const b = "oyw";
 
@@ -11,3 +12,5 @@ for (let i = 0; i < b.length; i++) {
 }
 
 console.log(allExist);
+
+// partialAnagram  

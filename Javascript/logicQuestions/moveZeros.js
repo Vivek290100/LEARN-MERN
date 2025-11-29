@@ -30,19 +30,3 @@ const arr = [3, 5, 0, 8, 6, 0, 0, 8, 0, 9, 0];
 //   return arr;
 // }
 // console.log(fun());
-
-const s = ")()"
-let open = 0
-    let close = 0
-    for(let i=0;i<s.length;i++){
-        if(s[i]=="("){
-            open++
-        }else if(s[i]==")"){
-            close++
-        }else{
-            return 0
-        }
-    }
-    return  Math.min(open, close)*2
-
-
