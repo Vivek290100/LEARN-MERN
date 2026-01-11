@@ -203,3 +203,14 @@ db.customers.aggregate([{ $lookup: { from: "orders", localField: "_id", foreignF
 db.customers.aggregate([{ $group: { _id: "$Age", totalSpent: { $sum: "$AmountSpent" } } }]);
 
 sortByCount
+
+
+db.customers.bulkWrite([
+  {insertOne:{document:{Name:"Vivek"}}},
+  {updateOne:{filter:{Name:"Vivek"},update:{$set:{lastName:"V"}}}},
+  {deleteOne:{filter:{Name:"Vviek"}}}
+])
+
+
+
+db.employees.updateOne({ Name: "Mia" },[ { $set: { Gender: { $toUpper: "$Gender" } } } ])
