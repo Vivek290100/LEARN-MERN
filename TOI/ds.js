@@ -21,26 +21,56 @@ class Graph{
     }
 
     bfs(start){
-        
+        const queue = [start]
+        const result = []
+        const visited = {}
+        visited[start] = true
+        while(queue.length){
+          let vertex = queue.shift()
+          result.push(vertex)
+
+          this.adjacencyList[vertex].forEach(neighbor=>{
+            if(!visited[neighbor]){
+              result.push(neighbor)
+              visited[vertex] = true
+            }
+          })
+        }
+        return result
     }
 
-      detectCycle(start){
-    const visited = {}
-    const dfs = (vertex, parent)=>{
-      visited[vertex] = true
-      for(const neighbor of this.adjacancyList[vertex]){
-        if(!visited[neighbor]){
-          if(dfs(neighbor, vertex)){
-            return true
-          }
-        }else{
-          if(neighbor!==parent){
-            return true
-          }
+    dfs(start){
+      const result = []
+      const visited = {}
+
+      (function dfsHelper(vertex){
+        if(!vertex){
+          return
         }
-      }
-      return false
+        result.push(vertex)
+        visited[vertex] = true
+
+        adjacencyList[vertex].forEach(neighbor=>{
+          if(!visited[neighbor]){
+            dfsHelper(neighbor)
+          }
+        })
+      }(start))
+      return result
     }
-    return dfs(start, null)
-  }
 }
+
+const graph = new Graph()
+graph.addVertex("A")
+graph.addVertex("B")
+graph.addVertex("D")
+graph.addVertex("C")
+
+
+graph.addEdges("A","B")
+graph.addEdges("D","B")
+graph.addEdges("A","C")
+graph.addEdges("D","B")
+graph.addEdges("A","C")
+
+console.log(graph);
