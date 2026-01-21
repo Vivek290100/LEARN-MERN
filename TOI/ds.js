@@ -1,98 +1,32 @@
-class Graph{
-    constructor(){
-        this.adjacencyList = {}
-    }
+// function binarySearch(arr, target){
+//   let start = 0
+//   let end = arr.length-1
+//   while(start<=end){
+//     let mid = Math.floor((start+end)/2)
+//     if(arr[mid]==target){
+//       return true
+//     }else if(arr[mid]<target){
+//       start = mid+1
+//     }else{
+//       end = mid-1
+//     }
+//   }
+//   return false
+// }
+const arr = [3,5,7,9,16,23,34,45,56,67]
+console.log(binarySearch(arr,4));
 
-    addVertex(vertex){
-        if(!this.adjacencyList[vertex]){
-            this.adjacencyList[vertex] = []
-        }
-    }
-
-    addEdges(vertex1,vertex2){
-        if(!this.adjacencyList[vertex1]){
-            this.addVertex(vertex1)
-        }
-        if(!this.adjacencyList[vertex2]){
-            this.addVertex(vertex2)
-        }
-        this.adjacencyList[vertex1].push(vertex2)
-        this.adjacencyList[vertex2].push(vertex1)
-    }
-
-    bfs(start){
-        const queue = [start]
-        const result = []
-        const visited = {}
-        visited[start] = true
-        while(queue.length){
-          let vertex = queue.shift()
-          result.push(vertex)
-
-          this.adjacencyList[vertex].forEach(neighbor=>{
-            if(!visited[neighbor]){
-              result.push(neighbor)
-              visited[vertex] = true
-            }
-          })
-        }
-        return result
-    }
-
-    dfs(start){
-      const result = []
-      const visited = {}
-      const adjacencyList = this.adjacencyList;
-
-      (function dfsHelper(vertex){
-        if(!vertex){
-          return
-        }
-        result.push(vertex)
-        visited[vertex] = true
-
-        adjacencyList[vertex].forEach(neighbor=>{
-          if(!visited[neighbor]){
-            dfsHelper(neighbor)
-          }
-        })
-      }(start))
-      return result
-    }
-
-    detectCycle(start){
-      const visited = {}
-      const dfs = (vertex, parent) =>{
-        visited[vertex] = true
-        for (const neighbor of this.adjacencyList[vertex]){
-          if(!visited[neighbor]){
-            if(dfs(neighbor,vertex)){
-              return true
-            }
-          }else{
-            if(neighbor!=parent){
-              return true
-            }
-          }
-        }
-        return false
-      }
-      return dfs(start, null)
-    }
+function binarySearch(arr, target, start = 0, end = arr.length-1){
+  if(start>end){
+    return false
+  }
+  let mid = Math.floor((start+end)/2)
+  if(arr[mid]==target){
+    return true
+  }else if(arr[mid]<target){
+    return binarySearch(arr, target, mid+1, end)
+  }else{
+    return binarySearch(arr, target, start, mid-1)
+  }
 }
 
-const graph = new Graph()
-graph.addVertex("A")
-graph.addVertex("B")
-graph.addVertex("D")
-graph.addVertex("C")
-
-
-graph.addEdges("A","B")
-graph.addEdges("D","B")
-graph.addEdges("A","C")
-graph.addEdges("D","B")
-graph.addEdges("A","C")
-
-console.log(graph.bfs("A"));
-console.log(graph.dfs("A"));
