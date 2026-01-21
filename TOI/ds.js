@@ -42,6 +42,7 @@ class Graph{
     dfs(start){
       const result = []
       const visited = {}
+      const adjacencyList = this.adjacencyList;
 
       (function dfsHelper(vertex){
         if(!vertex){
@@ -58,6 +59,26 @@ class Graph{
       }(start))
       return result
     }
+
+    detectCycle(start){
+      const visited = {}
+      const dfs = (vertex, parent) =>{
+        visited[vertex] = true
+        for (const neighbor of this.adjacencyList[vertex]){
+          if(!visited[neighbor]){
+            if(dfs(neighbor,vertex)){
+              return true
+            }
+          }else{
+            if(neighbor!=parent){
+              return true
+            }
+          }
+        }
+        return false
+      }
+      return dfs(start, null)
+    }
 }
 
 const graph = new Graph()
@@ -73,4 +94,5 @@ graph.addEdges("A","C")
 graph.addEdges("D","B")
 graph.addEdges("A","C")
 
-console.log(graph);
+console.log(graph.bfs("A"));
+console.log(graph.dfs("A"));
