@@ -1,32 +1,46 @@
-// function binarySearch(arr, target){
-//   let start = 0
-//   let end = arr.length-1
-//   while(start<=end){
-//     let mid = Math.floor((start+end)/2)
-//     if(arr[mid]==target){
-//       return true
-//     }else if(arr[mid]<target){
-//       start = mid+1
-//     }else{
-//       end = mid-1
-//     }
-//   }
-//   return false
-// }
-const arr = [3,5,7,9,16,23,34,45,56,67]
-console.log(binarySearch(arr,4));
-
-function binarySearch(arr, target, start = 0, end = arr.length-1){
-  if(start>end){
-    return false
+class HashTable{
+  constructor(size){
+    this.table = new Array(size)
   }
-  let mid = Math.floor((start+end)/2)
-  if(arr[mid]==target){
-    return true
-  }else if(arr[mid]<target){
-    return binarySearch(arr, target, mid+1, end)
-  }else{
-    return binarySearch(arr, target, start, mid-1)
+
+  hash(key){
+    let total = 0
+    for (let i = 0; i < key.length; i++) {
+      total+=key.charCodeAt(i)
+    }
+    return total%this.table.length
+  }
+
+  set(key,value){
+    const index = this.hash(key)
+    this.table[index] = value
+  }
+
+  get(key){
+    const index = this.hash(key)
+    return this.table[index]
+  }
+
+  remove(key){
+    const index = this.hash(index)
+    this.table[index = undefined]
+  }
+
+  display(){
+    for(let i=0;i<this.table.length;i++){
+      if(this.table){
+        console.log(i,this.table[i]);
+      }
+    }
+  }
+
+  removeDups(arr){
+
   }
 }
 
+const tble = new HashTable(10)
+tble.set("vivek12",12)
+tble.set("vi12v1ek",12)
+tble.set("v12i11vek",12)
+tble.display()
