@@ -53,10 +53,11 @@ class Trie {
     }
     let list = []
     this.collectword(currentNode,word,list)
+    return list
   }
 
   collectword(node, word, list){
-    if(word.endword){
+    if(node.endword){
       list.push(word)
     }
     for(let char in node.children){
@@ -66,10 +67,11 @@ class Trie {
 }
 
 const trie = new Trie()
-trie.insert("a")
-trie.insert("p")
-trie.insert("p")
-trie.insert("l")
-trie.insert("e")
+trie.insert("apple")
+trie.insert("banana")
+trie.insert("app")
+
 
 console.log(trie.search("apple"));
+console.log(trie.startWith("ap"));
+console.log(trie.authoComplete("ap"));
