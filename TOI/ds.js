@@ -1,46 +1,75 @@
-class HashTable{
-  constructor(size){
-    this.table = new Array(size)
-  }
-
-  hash(key){
-    let total = 0
-    for (let i = 0; i < key.length; i++) {
-      total+=key.charCodeAt(i)
-    }
-    return total%this.table.length
-  }
-
-  set(key,value){
-    const index = this.hash(key)
-    this.table[index] = value
-  }
-
-  get(key){
-    const index = this.hash(key)
-    return this.table[index]
-  }
-
-  remove(key){
-    const index = this.hash(index)
-    this.table[index = undefined]
-  }
-
-  display(){
-    for(let i=0;i<this.table.length;i++){
-      if(this.table){
-        console.log(i,this.table[i]);
-      }
-    }
-  }
-
-  removeDups(arr){
-
+class Node {
+  constructor() {
+    this.children = {}
+    this.endword = false
   }
 }
 
-const tble = new HashTable(10)
-tble.set("vivek12",12)
-tble.set("vi12v1ek",12)
-tble.set("v12i11vek",12)
-tble.display()
+class Trie {
+  constructor() {
+    this.root = new Node()
+  }
+
+  insert(word) {
+    let currentNode = this.root
+    for (const char of word) {
+      if (!currentNode.children[char]) {
+        currentNode.children[char] = new Node()
+      }
+      currentNode = currentNode.children[char]
+    }
+    currentNode.endword = true
+  }
+
+  search(word) {
+    let currentNode = this.root
+    for (const char of word) {
+      if (!currentNode.children[char]) {
+        return false
+      }
+      currentNode = currentNode.children[char]
+    }
+    return currentNode.endword
+  }
+
+  startWith(word) {
+    let currentNode = this.root
+    for (const char of word) {
+      if (!currentNode.children[char]) {
+        return false
+      }
+      currentNode = currentNode.children[char]
+    }
+    return true
+  }
+
+  authoComplete(word) {
+    let currentNode = this.root
+    for (const char of word) {
+      if (!currentNode.children[char]) {
+        return []
+      }
+      currentNode = currentNode.children[char]
+    }
+    let list = []
+    this.collectword(currentNode,word,list)
+  }
+
+  collectword(node, word, list){
+    if(word.endword){
+      list.push(word)
+    }
+    for(let char in node.children){
+      this.collectword(node.children[char],word+char,list)
+    }
+  }
+}
+
+const trie = new Trie()
+trie.insert("a")
+trie.insert("p")
+trie.insert("p")
+trie.insert("l")
+trie.insert("e")
+
+console.log(trie.search("apple"));
