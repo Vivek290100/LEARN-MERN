@@ -1,77 +1,40 @@
-class Node {
-  constructor() {
-    this.children = {}
-    this.endword = false
+function bubble(arr){
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if(arr[j]>arr[j+1]){
+        [arr[j],arr[j+1]] = [arr[j+1], arr[j]]
+      }
+    }
   }
+  return arr
+}
+console.log("bubble",bubble([3,5,1,2,3,4,6,9,7,6,4]));
+
+function insertion(arr){
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j >= 0; j--) {
+      if(arr[j]>arr[j+1]){
+        [arr[j],arr[j+1]] = [arr[j+1], arr[j]]
+      }
+    }
+  }
+  return arr
+}
+console.log("insertion",insertion([7,5,3,1,2,4,6,8]));
+
+function selection(arr){
+  for (let i = 0; i < arr.length; i++) {
+    let lowest = i
+    for (let j = i+1; j<arr.length; j++) {
+      if(arr[j]<arr[lowest]){
+        lowest = j
+      }
+    }
+    if(lowest!=i){
+      [arr[i],arr[lowest]] = [arr[lowest],arr[i]]
+    }
+  }
+  return arr
 }
 
-class Trie {
-  constructor() {
-    this.root = new Node()
-  }
-
-  insert(word) {
-    let currentNode = this.root
-    for (const char of word) {
-      if (!currentNode.children[char]) {
-        currentNode.children[char] = new Node()
-      }
-      currentNode = currentNode.children[char]
-    }
-    currentNode.endword = true
-  }
-
-  search(word) {
-    let currentNode = this.root
-    for (const char of word) {
-      if (!currentNode.children[char]) {
-        return false
-      }
-      currentNode = currentNode.children[char]
-    }
-    return currentNode.endword
-  }
-
-  startWith(word) {
-    let currentNode = this.root
-    for (const char of word) {
-      if (!currentNode.children[char]) {
-        return false
-      }
-      currentNode = currentNode.children[char]
-    }
-    return true
-  }
-
-  authoComplete(word) {
-    let currentNode = this.root
-    for (const char of word) {
-      if (!currentNode.children[char]) {
-        return []
-      }
-      currentNode = currentNode.children[char]
-    }
-    let list = []
-    this.collectword(currentNode,word,list)
-    return list
-  }
-
-  collectword(node, word, list){
-    if(node.endword){
-      list.push(word)
-    }
-    for(let char in node.children){
-      this.collectword(node.children[char],word+char,list)
-    }
-  }
-}
-
-const trie = new Trie()
-trie.insert("apple")
-trie.insert("banana")
-trie.insert("app")
-
-
-console.log(trie.search("apple"));
-console.log(trie.startWith("ap"));
-console.log(trie.authoComplete("ap"));
+console.log("selection",selection([7,5,3,1,2,4,6,8]));
