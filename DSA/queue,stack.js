@@ -1,46 +1,40 @@
 //Stack
-class Stack{
-    constructor(){
+class Stack {
+    constructor() {
         this.items = []
     }
 
-    push(value){
+    push(value) {
         return this.items.push(value)
     }
 
-    pop(){
+    pop() {
         return this.items.pop()
     }
 
-    reverseString(str){
+    reverseString(str) {
         const newStack = new Stack()
-        for(let i=0;i<str.length;i++){
+        for (let i = 0; i < str.length; i++) {
             newStack.push(str[i])
         }
         let string = ''
-        while(newStack.items.length>0){
-            string+=newStack.items.pop()
+        while (newStack.items.length > 0) {
+            string += newStack.items.pop()
         }
         return string
     }
 
-    deleteMid(currentIndex = 0){
-        if(this.items.length == 0){
-            return 
+    deleteMid(currentIndex = 0) {
+        if (this.items.length == 0) {
+            return
         }
-
-        const midInd = Math.floor(this.items.length/2)
+        const midInd = Math.floor(this.items.length / 2)
         const top = this.pop()
-        if(currentIndex!==midInd){
-           return 
+        if (currentIndex !== midInd) {
+            this.deleteMid(currentIndex + 1)
+            this.push(top)
         }
-
-        this.midInd(currentIndex+1)
-
-        this.push(top)
     }
-
-
 }
 
 const stack = new Stack()
@@ -248,7 +242,7 @@ console.log(stack);
 
 //     pop(){
 //         let popped = this.top
-//         this.top = this.top.next  
+//         this.top = this.top.next
 //         return popped.value
 //     }
 
@@ -275,7 +269,7 @@ console.log(stack);
 
 //     // removeDuplicates(){
 //     //     if(this.top == null){
-//     //         return 
+//     //         return
 //     //     }
 //     //     let current = this.top
 //     //     let prev = null
