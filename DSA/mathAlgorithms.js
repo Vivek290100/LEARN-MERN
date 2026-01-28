@@ -53,7 +53,7 @@
 // console.log(second);
 // console.log(third);
 
-//sum od n numbers=============================================
+//sum of n numbers=============================================
 // function sum(n){
 //     if(n<1){
 //         return n
