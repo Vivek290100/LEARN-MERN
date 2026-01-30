@@ -1,37 +1,29 @@
 // import React, { useState } from 'react'
-// import Child from './CPChild'
+import CPChild from './CPChild'
 
 // const CPParent = () => {
-//   const [name, setName] = useState("")
-//   const childData = (data) =>{
-//     setName(data)
+//   const [data,setdata] = useState("")
+//   const getData = (data) =>{
+//     setdata(data)
 //   }
 //   return (
 //     <div>
-//       <h1> hii{name}       !</h1>
-//         <div>Parent Component</div>
-//         <Child getdatafromchild = {childData}/>
+//       <h1>message: {data}</h1>
+//       <CPChild sendData = {getData}/>
 //     </div>
 //   )
 // }
 
 // export default CPParent
 
-
-import React, { useState } from 'react'
-import CPChild from '../ChildToParent/CPChild'
+import React from 'react'
 
 const CPParent = () => {
-  const [data, setData] = useState("")
-  const getChildData = (message)=>{
-    setData(message)
-  }
+  const message = "this is a message"
   return (
-    <>
-    <div>CPParent</div>
-    <h1>message is: {data}</h1>
-    <CPChild getChildData = {getChildData}/>
-    </>
+    <div>
+      <CPChild message={message}/>
+    </div>
   )
 }
 

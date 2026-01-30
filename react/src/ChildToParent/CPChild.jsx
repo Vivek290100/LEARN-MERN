@@ -1,33 +1,28 @@
 // import React from 'react'
 
-// const CPChild = ({getdatafromchild}) => {
-//   const handleClick = ()=>{
-//     const data = "Vivek"
-//     getdatafromchild(data)
+// const CPChild = ({sendData}) => {
+//   const mesage = "hello"
+//   const send = () =>{
+//     sendData(mesage)
 //   }
 //   return (
 //     <div>
-//         <h1>Child Component</h1>
-//         <button onClick={handleClick}>send data</button>
+//       <button onClick={send}>click to send</button>
 //     </div>
 //   )
 // }
 
 // export default CPChild
 
+import React, { useState } from 'react'
 
-import React from 'react'
-
-const CPChild = ({getChildData}) => {
-  const data = "this is a message from child"
-  function handleClick(){
-    getChildData(data)
+const CPChild = ({message}) => {
+  const [data, setData] = useState("")
+  const set = () =>{
+    setData(message)
   }
   return (
-    <>
-    <div>CPChild</div>
-      <button onClick={handleClick}>send</button>
-    </>
+    <button onClick={set}>CPChild:{data}</button>
   )
 }
 

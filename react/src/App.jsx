@@ -50,9 +50,9 @@ const App = () => {
       {/* <Cchild/>
       <Cparent/> */}
       {/* <Customparent/> */}
-      {/* <RMParent/> */}
+      <RMParent/>
       {/* <UseMemoHook/> */}
-      <UCParent/>
+      {/* <UCParent/> */}
       {/* <UseRef/> */}
       {/* <CPParent/> */}
       {/* <HocApp/> */}
