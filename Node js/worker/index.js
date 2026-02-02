@@ -6,6 +6,15 @@ app.get("/",(req,res)=>{
     res.send("hello")
 })
 
+app.get("/loop",(req,res)=>{
+    let count = 0
+    for (let i = 0; i < 30000000000; i++) {
+        count++
+        
+    }
+    res.send(`loop data:${count}`)
+})
+
 app.get("/route1",(req,res)=>{
     const worker = new Worker("./worker.js")
     worker.on("message", (j)=>{
