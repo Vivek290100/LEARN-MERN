@@ -21,7 +21,9 @@ const app = express();
 app.get("/", (req, res) => {
   console.log("jhbsjhbf");
   const query = req.query.name;
-  res.send(query);
+  const query2 = req.query.email;
+  const query3 = req.query.pass;
+  res.send(`${query},${query3},${query2}`);
 });
 
 app.listen(3000, () => {

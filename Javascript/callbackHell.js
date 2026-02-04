@@ -73,10 +73,8 @@
 //     })
 //   }
 
-//   firstFunction().then(secondFunction).then(thirdFunction)
-//   .then(()=>{
+//   firstFunction().then(secondFunction).then(thirdFunction).then(()=>{
 //     console.log("all completed");
-    
 //   })
 
 

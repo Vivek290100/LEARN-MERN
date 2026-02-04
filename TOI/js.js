@@ -193,7 +193,7 @@
 //     }
 //     for (let i = ind; i < arr.length; i++) {
 //         arr[i] = 0
-        
+
 //     }
 
 //     return arr
@@ -221,7 +221,7 @@
 //     return arr.length === 0
 // }
 // console.log(validParentheses(parentheses));
-    
+
 
 
 // reverse array of integers
@@ -296,7 +296,7 @@
 
 // ];
 
- 
+
 // console.log(groupBy(data, "role"));
 
 
@@ -374,7 +374,7 @@
 //       }else{
 //         return this.insertNode(root.right, newNode)
 //       }
-      
+
 //     }
 //   }
 
@@ -383,14 +383,14 @@
 //       this.inOrder(root.left)
 //       console.log(root.value);
 //       this.inOrder(root.right)
-      
+
 //     }
 //   }
 
 //   search(root,value){
 //     if(!root){
 //       console.log(false);
-      
+
 //     }else{
 //       if(root.value == value){
 //       console.log(true);
@@ -707,7 +707,7 @@
 //         [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
 //       }
 //     }
-    
+
 //   }
 //   return arr
 // }
@@ -720,7 +720,7 @@
 //         [arr[j],arr[j-1]] = [arr[j-1],arr[j]]
 //       }
 //     }
-    
+
 //   }
 //   return arr
 // }
@@ -741,6 +741,213 @@
 //   return arr
 // }
 // console.log(selection([345,5,6,5434,352,346,346,132]));
+
+
+
+// function fun(num){
+//     console.log(`${this.name}`,num);
+
+// }
+
+// const person = {
+//     name:"vivek",
+//     email:"vivek@"
+// }
+
+// const fun1 = fun.bind(person,4)
+// fun1()
+
+// console.log("hiii");
+
+// =========================================================
+// const promise = new Promise((resolve, reject)=>{
+//     if(true){
+//         resolve("resolved"),2000
+//     console.log("tttttttttt");
+
+//     }else{
+//         reject("rejecteddd")
+//     }
+
+// })
+// promise.then((result)=>{
+//     console.log(result);
+
+// }).catch((error=>{
+//     console.log(error);
+
+// }))
+
+
+// async function getData(){
+//     try {
+//     const data = await promise
+//     console.log("got it",data);
+//     } catch (error) {
+//         console.log("error",error);
+//     }
+// }
+// getData()
+// ==============================================
+
+// const promise1 = new Promise((resolve, reject) => {
+//     let test = false
+//     setTimeout(() => {
+//         if (test) {
+//             resolve("resolved 1")
+//         } else {
+//             reject("rejected 1")
+//         }
+//     })
+// })
+// const promise2 = new Promise((resolve, reject) => {
+//     let test = true
+
+//     setTimeout(() => {
+//         if (test) {
+//             resolve("resolved 2")
+//         } else {
+//             reject("rejected 2")
+//         }
+//     }),3000
+// })
+// const promise3 = new Promise((resolve, reject) => {
+//     let test = true
+
+//     setTimeout(() => {
+//         if (test) {
+//             resolve("resolved 3")
+//         } else {
+//             reject("rejected 3")
+//         }
+//     })
+// })
+
+
+// Promise.all([promise1, promise2, promise3]).then((result) => {
+//     console.log(result);
+
+// }).catch((error)=>{
+//     console.log(error);
+    
+// })
+// Promise.any([promise1, promise2, promise3]).then((result) => {
+//     console.log(result);
+
+// }).catch((error)=>{
+//     console.log(error);
+    
+// })
+// Promise.race([promise1, promise2, promise3]).then((result) => {
+//     console.log(result);
+
+// }).catch((error)=>{
+//     console.log(error);
+    
+// })
+// Promise.allSettled([promise1, promise2, promise3]).then((result) => {
+//     console.log(result);
+
+// }).catch((error)=>{
+//     console.log(error);
+    
+// })
+
+
+
+
+// function fun1(callback){
+//     return new Promise((callback)=>{
+//         setTimeout(()=>{
+//             console.log("function1");
+//             callback()
+//         },2000)
+//     })
+// }
+// function fun2(){
+//     return new Promise((callback)=>{
+//         setTimeout(()=>{
+//             console.log("function2");
+//             callback()
+//         },1000)
+//     })
+// }
+// function fun3(){
+//     return new Promise((callback)=>{
+//         setTimeout(()=>{
+//             console.log("function3");
+//             callback()
+//         },2000)
+//     })
+// }
+
+
+// fun1().then(fun2).then(fun3).then(()=>{
+//     console.log("all completed");
+    
+// })
+
+
+// variable shadowing
+// let i=10
+// function fun(){
+//     let i = 12
+//     console.log(i);
+// }
+// fun()
+
+// function fun(a,b){
+//     function fun1(){
+//        console.log(a,b);
+       
+//     }
+//     return fun1
+// }
+// let ans = fun(4,5)
+// ans()
+
+
+// function fun1(a){
+//     return function fun2(b){
+//         return function fun3(c){
+//             return   a+b+c
+//         }
+//     }
+// }
+
+// const ans = fun1(2)(3)(3)
+// console.log(ans);
+
+// function HOF(arr,fun){
+//     const ans = []
+//     for (let i = 0; i < arr.length; i++) {
+//         ans.push(fun(arr[i]))
+        
+//     }
+//     return ans
+// }
+
+
+// function fun(num){
+//     return num*2
+// }
+
+// const ans = HOF([1,2,3,4,5,6],fun)
+// console.log(ans);
+
+
+let x = 10; // Outer variable
+
+function example() {
+    let x = 20;
+    console.log(x); 
+}
+
+example();
+console.log(x); 
+
+
+
 
 
 
