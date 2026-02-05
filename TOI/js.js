@@ -936,15 +936,52 @@
 // console.log(ans);
 
 
-let x = 10; // Outer variable
+// let x = 10; // Outer variable
 
-function example() {
-    let x = 20;
-    console.log(x); 
+// function example() {
+//     let x = 20;
+//     console.log(x); 
+// }
+
+// example();
+// console.log(x); 
+
+// const fs = require("fs")
+// console.log("one");
+// setTimeout(()=>{
+//     console.log("two");
+    
+// })
+// process.nextTick(()=>{
+//     console.log("three");
+    
+// })
+// setImmediate(()=>{
+//     console.log("four");
+    
+// })
+// const readFile = fs.readFileSync("js.txt","utf8")
+// if(readFile){
+//     console.log(readFile);
+    
+// }
+// console.log("five");
+
+
+
+// factory function
+function sayHi(name, email){
+    return {
+        name:name,
+        email:email,
+        greet(){
+            console.log(`hi${name}`);
+            
+        }
+    }
 }
-
-example();
-console.log(x); 
+sayHi("vivek","email.com").greet()
+sayHi("vivek","email.com").greet()
 
 
 
