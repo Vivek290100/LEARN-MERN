@@ -970,21 +970,68 @@
 
 
 // factory function
-function sayHi(name, email){
-    return {
-        name:name,
-        email:email,
-        greet(){
-            console.log(`hi${name}`);
+// function sayHi(name, email){
+//     return {
+//         name:name,
+//         email:email,
+//         greet(){
+//             console.log(`hi${name}`);
             
-        }
+//         }
+//     }
+// }
+// sayHi("vivek","email.com").greet()
+// sayHi("vivek","email.com").greet()
+
+
+// function composition
+// combine 2 or more funtions to create new function
+// function fun1(x){
+//     return x*2
+// }
+// function fun2(x){
+//     return x*3
+// }
+
+// const ans = fun1(fun2(2))
+// console.log(ans);
+
+// function* generator(){
+//     let num = 100
+//     for (let i = num; i >=0; i--) {
+//         if((i%5)==0){
+//             yield i
+//         }
+//     }
+// }
+// const gen = generator()
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+
+
+class Mobiles{
+    constructor(name){
+        this.name = name
     }
 }
-sayHi("vivek","email.com").greet()
-sayHi("vivek","email.com").greet()
 
+class vivo extends Mobiles{
+    ringing () {
+        console.log(`${this.name} is ringing`);
+    }
+}
 
+// const ring = new vivo("vivoModel1")
+// ring.ringing()
 
+class redmi extends vivo{
+    ringing( ) {
+        console.log(`${this.name} model is 123`);
+    }
+}
 
-
+const redmimodel123 = new redmi("redmi")
+redmimodel123.ringing()
 
