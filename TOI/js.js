@@ -1011,27 +1011,32 @@
 // console.log(gen.next().value);
 
 
-class Mobiles{
-    constructor(name){
-        this.name = name
-    }
-}
+// class constructor
+// class me{
+//     constructor(name,email){
+//         this.name = name,
+//         this.email = email
+//     }
 
-class vivo extends Mobiles{
-    ringing () {
-        console.log(`${this.name} is ringing`);
-    }
-}
+//     sayHi(){
+//         console.log(`hi ${this.name}`);
+        
+//     }
+// }
 
-// const ring = new vivo("vivoModel1")
-// ring.ringing()
+// const sayHii = new me("vivek")
+// sayHii.sayHi()
 
-class redmi extends vivo{
-    ringing( ) {
-        console.log(`${this.name} model is 123`);
-    }
-}
+// constructor function
+// function fun(name,email){
+//     this.name = name,
+//     this.email = email
+// }
 
-const redmimodel123 = new redmi("redmi")
-redmimodel123.ringing()
+// fun.prototype.sayHi=function(){
+//     console.log(`hi${this.name}`);
+    
+// }
 
+// const me = new fun("vivek","vivek@")
+// me.sayHi()

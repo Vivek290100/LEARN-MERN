@@ -1,3 +1,4 @@
+// class+constructor
 // class people{
 //   constructor(name,email){
 //     this.name = name
@@ -12,7 +13,7 @@
 
 
 
-
+// constructor function
 function People(name,email){
     this.name = name
     this.email = email
