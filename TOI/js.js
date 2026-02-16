@@ -1040,3 +1040,46 @@
 
 // const me = new fun("vivek","vivek@")
 // me.sayHi()
+
+
+// function fun(name){
+//     return{
+//         name:name,
+//         sayHi(){
+//             console.log(`hi ${name}`);
+            
+//         }
+//     }
+// }
+
+// fun("vivek").sayHi()
+
+// let myObject = {
+//     a: 10,
+//     b: 20,
+//     c: "hello",
+//     d: 30,
+//     e: "world",
+//     f: 40
+// };
+
+// for(let key in myObject){
+//     console.log(myObject[key]);
+    
+// }
+
+
+// function palindrome(str){
+//     let string = ""
+//     for (let i = str.length-1; i >=0; i--) {
+//         string+=str[i]
+//     }
+//     if(str==string){
+//         return true
+//     }else{
+//         return false
+//     }
+// }
+
+// console.log(palindrome("viv"));
+
